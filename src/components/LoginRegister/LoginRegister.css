@@ -3,10 +3,10 @@ body {
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url(../Assets/gwent-table.jpeg) no-repeat   ;
+    background: url(../Assets/gwent-table.jpeg) no-repeat;
     background-size: cover;
     background-position: center;
-  }
+}
 
 .wrapper {
     position: relative;
@@ -21,7 +21,7 @@ body {
     transition: height 0.2s ease;
 }
 
-.wrapper.active{
+.wrapper.active {
     height: 520px;
 }
 
@@ -30,12 +30,12 @@ body {
     padding: 40px;
 }
 
-.wrapper .form-box.login{
+.wrapper .form-box.login {
     transition: translate .18s ease;
     translate: 0;
 }
 
-.wrapper.active .form-box.login{
+.wrapper.active .form-box.login {
     transition: translate .18s ease;
     translate: -400px;
 }
@@ -46,7 +46,7 @@ body {
     translate: 400px;
 }
 
-.wrapper.active .form-box.register{
+.wrapper.active .form-box.register {
     transition: translate .18s ease;
     translate: 0;
 }
@@ -101,7 +101,7 @@ form .remember-forgot {
 
 .remember-forgot a {
     color:#fff;
-    text-decoration: none;;
+    text-decoration: none;
 }
 
 .remember-forgot a:hover {
