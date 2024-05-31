@@ -1,4 +1,3 @@
-import logoImg from './../Assets/header img/logo.png' //<img src={logoImg} alt="Logo" />
 import { FaUser } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
 import './header.css'
