@@ -1,6 +1,6 @@
 import { FaUser } from "react-icons/fa6";
 import { BiLogOut } from "react-icons/bi";
-import './header.css'
+import './Header.css'
 import { useState } from 'react';
 
 function Header () {
