@@ -1,10 +1,7 @@
 import LoginRegister from './components/LoginRegister/LoginRegister';
 
-
 function App() {
-  return (
-    <LoginRegister />
-  );
+    return <LoginRegister />;
 }
 
 export default App;
