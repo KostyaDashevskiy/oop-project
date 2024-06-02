@@ -14,6 +14,7 @@ function LoginForm({ registerLink }) {
         CreateApiEndpoint(END_POINTS.LOGIN)
             .login({ name, password })
             .then((res) => {
+                console.log(res);
                 setMessage(res.data.message);
                 setCode(res.status);
             })
