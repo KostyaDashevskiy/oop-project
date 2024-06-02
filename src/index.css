@@ -105,11 +105,22 @@ h6 {
 }
 
 :root {
+    /*Common*/
+    --text-color-black: #3a3a3a;
+    --text-color-white: #ffffff;
+    --backgorund-color-white: #ffffff;
+
+    /*Login Register*/
+    --checkbox-accent-color: #8988b6;
+    --form-background-color: #636284;
+
+    /*Header*/
     --header-color: #636284;
-    --menu-color: #8988b6;
+
+    /*Profile*/
+    --sidebar-background-color: #8988b6;
+    --info-background-color: #636284;
     --unactive-button-color: #ff9a09;
     --active-button-color: #73c602;
     --delete-account-color: #ff4242;
-    --text-black-color: #3a3a3a;
-    --pane-padding: 5px 42px;
 }

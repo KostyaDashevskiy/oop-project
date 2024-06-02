@@ -1,7 +1,7 @@
 /*---------------------logo*/
 .header {
     padding: 20px 0;
-    background-color: aquamarine;
+    background-color: var(--header-color);
 }
 
 .header_container {
@@ -15,40 +15,45 @@
 
 .header_link {
     text-decoration: none;
-    color: black;
+    color: var(--text-color-black);
     text-align: center;
 }
 
-/*---------------------username*/
+/*header menu*/
 
 .header_menu {
     position: relative;
+    display: flex;
+    align-items: center;
+    min-width: 150px;
 }
 
 .menu_icon {
     position: absolute;
     top: 50%;
     left: 12px;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
+    font-size: 16px;
 }
 
 .menu_button {
     height: 40px;
     width: 100%;
-    padding: 5px;
+    padding: 10px 20px;
     padding-left: 40px;
     border: none;
-    background-color: white;
+    background-color: var(--backgorund-color-white);
     border-radius: 5px;
     cursor: pointer;
+    font-size: 20px;
 }
 
 .header_dropdown {
     position: absolute;
     right: 0px;
     top: 45px;
-    width: 150px;
-    background-color: #fff;
+    min-width: 150px;
+    background-color: var(--backgorund-color-white);
     border: 1px solid #000000;
     opacity: 0;
     border-radius: 5px;
@@ -79,7 +84,7 @@
     column-gap: 10px;
     font-size: 20px;
     font-weight: 500;
-    color: grey;
+    color: var(--text-color-black);
     cursor: pointer;
     padding: 0 20px;
 }

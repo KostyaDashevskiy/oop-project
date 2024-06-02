@@ -13,14 +13,14 @@
     position: relative;
     width: 420px;
     height: 450px;
-    background: seagreen;
+    background: var(--form-background-color);
     border-radius: 10px;
-    color: #fff;
+    color: var(--text-color-white);
     display: flex;
     align-items: center;
     overflow: hidden;
     transition: height 0.2s ease;
-    margin-top: 321px;
+    margin-top: 34vh;
 }
 
 .loginRegisterPage__wrapper.active {
@@ -78,13 +78,13 @@
     border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 40px;
     font-size: 16px;
-    color: #fff;
+    color: var(--text-color-white);
     padding: 20px 45px 20px 20px;
 }
 
 .LoginForm__input-box input::placeholder,
 .RegisterForm__input-box input::placeholder {
-    color: #fff;
+    color: var(--text-color-white);
 }
 
 .LoginForm__input-box .icon,
@@ -101,17 +101,17 @@
     display: flex;
     justify-content: space-between;
     font-size: 14px;
-    margin: -15px 0 15px;
+    margin-top: -15px;
 }
 
 .RegisterForm__check-box label input,
 .LoginForm__check-box label input {
-    accent-color: #fff;
+    accent-color: var(--checkbox-accent-color);
     margin-right: 4px;
 }
 
 .LoginForm__check-box a {
-    color: #fff;
+    color: var(--text-color-white);
     text-decoration: none;
 }
 
@@ -126,8 +126,10 @@
     align-items: center;
 
     width: 100%;
+}
+.LoginForm__response > *,
+.RegisterForm__response > * {
     padding: 10px 0;
-    margin-bottom: 15px;
 }
 
 .LoginForm__response.code--200,
@@ -158,7 +160,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: var(--text-color-black);
     font-weight: 700;
 }
 
@@ -166,6 +168,7 @@
 .RegisterForm__submit-btn {
     width: 100%;
     height: 45px;
+    margin-top: 15px;
     background: #fff;
     border: none;
     outline: none;
@@ -173,7 +176,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: #333;
+    color: var(--text-color-black);
     font-weight: 700;
 }
 

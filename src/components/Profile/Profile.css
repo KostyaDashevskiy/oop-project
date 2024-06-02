@@ -1,5 +1,6 @@
 .Profile {
-    background-image: url(../Assets/gwent-table.jpeg);
+    background-image: url(../Assets/gwent.jpg);
+    background-size: cover;
 }
 
 .Profile__container {
@@ -15,9 +16,8 @@
 
 .Profile__sidebar {
     width: 220px;
-    background-color: #f0f0f0;
+    background-color: var(--sidebar-background-color);
     padding: 20px;
-    border-right: 1px solid #ddd;
     height: calc(100vh - 80px); /* make sidebar full height */
     display: flex;
     flex-direction: column;
@@ -29,8 +29,8 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #4caf50;
-    color: #fff;
+    background-color: var(--unactive-button-color);
+    color: var(--text-color-white);
     cursor: pointer;
     margin-bottom: 15px; /* add 15px margin between buttons */
 }
@@ -41,46 +41,28 @@
 
 .Profile__sidebar .sidebar__button--delite-account {
     margin-top: auto; /* pin the "delite account" button to the bottom */
-    background-color: darkred;
+    background-color: var(--delete-account-color);
 }
 
 .Profile__sidebar .sidebar__button.active {
-    background-color: #337ab7; /* highlight active button */
-    color: #fff;
+    background-color: var(--active-button-color); /* highlight active button */
 }
 
 /*profile content*/
 
-/* .Profile__content {
-    width: 100%;
-} */
+.Profile__content {
+    padding: 30px 40px;
+    height: 100%;
+}
 
-/*BasicInfo */
+/*Profile__BasicInfo */
 
 .Profile__BasicInfo {
-    padding: 30px 40px;
-    padding-bottom: 0;
-    height: 100%;
-    /*background: rgb(255, 255, 255);*/
-}
-
-/*BasicInfo UserProfile*/
-
-.BasicInfo__UserProfile {
     display: flex;
-    column-gap: 40px;
-    margin-bottom: 30px;
-}
-
-.BasicInfo__UserIcon {
-    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
     justify-content: center;
-    align-items: center;
-    width: 256px;
-    height: 256px;
-    font-size: 200px;
-    background-color: rebeccapurple;
-    border-radius: 20%;
+    align-items: flex-start;
 }
 
 .BasicInfo__UserInfo {
@@ -89,44 +71,25 @@
     justify-content: space-between;
 }
 
-.BasicInfo__UserName--label,
-.BasicInfo__UserEmail--label {
-    font-size: 30px;
-    margin-bottom: 10px;
+.BasicInfo__UserName,
+.BasicInfo__UserEmail,
+.BasicInfo__UserRating,
+.BasicInfo__UserWins {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
 }
 
-.BasicInfo__UserName--data,
-.BasicInfo__UserEmail--data {
+.BasicInfo--label {
+    font-size: 30px;
+}
+
+.BasicInfo--data {
     text-align: center;
-    color: #fff;
-    background-color: grey;
+    color: var(--text-color-white);
+    background-color: var(--info-background-color);
     padding: 10px 40px;
     border-radius: 20px;
     font-size: 40px;
-}
-
-/*BasicInfo games*/
-
-.BasicInfo__games {
-    display: flex;
-    justify-content: space-between;
-    gap: 100px;
-    max-width: 1000px;
-}
-
-.BasicInfo__rating--label,
-.BasicInfo__wins--label {
-    font-size: 30px;
-    margin-bottom: 10px;
-}
-
-.BasicInfo__rating--data,
-.BasicInfo__wins--data {
-    text-align: center;
-    color: #fff;
-    background-color: grey;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 40px;
-    width: 350px;
+    min-width: 350px;
 }
