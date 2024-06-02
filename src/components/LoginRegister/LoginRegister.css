@@ -1,3 +1,4 @@
+/*loginRegisterPage*/
 .loginRegisterPage {
     display: flex;
     justify-content: center;
@@ -22,7 +23,7 @@
 }
 
 .loginRegisterPage__wrapper.active {
-    height: 520px;
+    height: 600px;
 }
 
 .loginRegisterPage__wrapper .loginRegisterPage__form-box {
@@ -50,6 +51,8 @@
     transition: translate 0.18s ease;
     translate: 0;
 }
+
+/*LoginForm and RegisterForm*/
 
 .LoginForm h1,
 .RegisterForm h1 {
@@ -115,6 +118,49 @@
     text-decoration: underline;
 }
 
+.LoginForm__response,
+.RegisterForm__response {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 15px;
+}
+
+.LoginForm__response.code--200,
+.RegisterForm__response.code--200 {
+    color: lightgreen;
+    border: darkgreen double 3px;
+    background-color: green;
+}
+
+.LoginForm__response.code--404,
+.RegisterForm__response.code--409 {
+    color: red;
+    border: darkred double 3px;
+    background-color: lightcoral;
+}
+
+.RegisterForm__response-link {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 15px 30px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-weight: 700;
+}
+
 .LoginForm__submit-btn,
 .RegisterForm__submit-btn {
     width: 100%;
@@ -128,6 +174,13 @@
     font-size: 16px;
     color: #333;
     font-weight: 700;
+}
+
+.LoginForm__submit-btn:disabled,
+.RegisterForm__submit-btn:disabled {
+    background-color: grey;
+    outline: red;
+    cursor: not-allowed;
 }
 
 .LoginForm__link,

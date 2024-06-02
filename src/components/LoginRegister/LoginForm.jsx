@@ -1,35 +1,38 @@
 import { useState } from 'react';
 import { FaUser, FaLock } from 'react-icons/fa6';
 import { CreateApiEndpoint, END_POINTS } from '../../api';
-import axios from 'axios';
 
 function LoginForm({ registerLink }) {
-    const [name, setName] = useState();
-    const [password, setPassword] = useState();
+    const [name, setName] = useState('');
+    const [password, setPassword] = useState('');
+    const [message, setMessage] = useState('');
+    const [code, setCode] = useState('');
     const handleSubmit = (e) => {
         // Prevent the default submit and page reload
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.LOGIN)
             .login({ name, password })
-            .then((res) => console.log(res))
+            .then((res) => {
+                setMessage(res.data.message);
+                setCode(res.status);
+            })
             .catch((err) => console.log(err));
-
-        CreateApiEndpoint(END_POINTS.WEATHERFORECAST)
-            .weather()
-            .then((res) => console.log(res))
-            .catch((err) => console.log(err));
-        // Handle validations
-        //CreateApiEndpoint(END_POINTS.LOGIN).post(name, password).then((response) => {console.log(response);}).catch((error) => console.log(error));
     };
     return (
-        <form className='RegisterForm__LoginForm LoginForm' method='post' onSubmit={handleSubmit}>
+        <form
+            className='loginRegisterPage__LoginForm LoginForm'
+            method='post'
+            onSubmit={handleSubmit}
+        >
             <h1>Login</h1>
             <div className='LoginForm__input-box'>
                 <input
                     type='text'
                     placeholder='Username'
+                    minLength='8'
                     required
+                    pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$'
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                 />
@@ -40,13 +43,15 @@ function LoginForm({ registerLink }) {
                     type='password'
                     placeholder='Password'
                     required
+                    pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
+                    minLength='6'
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 <FaLock className='icon' />
             </div>
 
-            <div className='LoginForm__check-box'>
+            <div className='LoginForm__check-box' style={{ display: 'none' }}>
                 <label>
                     <input type='checkbox' />
                     Remember Me
@@ -54,7 +59,18 @@ function LoginForm({ registerLink }) {
                 <a href='#!'>Forgot password?</a>
             </div>
 
-            <button className='LoginForm__submit-btn' type='submit'>
+            <div
+                className={'LoginForm__response' + (code !== '' ? ' code--' + code : '')}
+                style={{ display: code === '' ? 'none' : 'flex' }}
+            >
+                <p>{message}</p>
+            </div>
+
+            <button
+                className='LoginForm__submit-btn'
+                type='submit'
+                disabled={name === '' || password === '' ? true : ''}
+            >
                 Login
             </button>
 
