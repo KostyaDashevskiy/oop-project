@@ -74,7 +74,6 @@
     list-style-type: none;
     display: flex;
     flex-direction: column;
-    row-gap: 20px;
 }
 
 .menu_item {
@@ -86,17 +85,10 @@
     font-weight: 500;
     color: var(--text-color-black);
     cursor: pointer;
-    padding: 0 20px;
+    padding: 20px 20px;
 }
 
-.menu_item:first-child {
-    padding-top: 20px;
-}
-.menu_item:last-child {
-    padding-bottom: 20px;
-}
-
-.menu_item:not(:last-child)::after {
+.menu_link:not(:last-child) .menu_item::after {
     position: absolute;
     content: '';
     display: block;
@@ -104,7 +96,7 @@
     height: 1px;
     background-color: #000000;
     left: 0;
-    bottom: -10px;
+    bottom: 0;
 }
 
 .menu_item.icon {
