@@ -17,57 +17,41 @@ namespace Infrastructure.Repo
         private readonly AppDbContext appDbContext;
         private readonly IConfiguration configuration;
 
-        /*private async Task<UserRating> FindUserByID(int Id) =>
-            await appDbContext.Rating.FirstOrDefaultAsync(x => x.Id == Id);*/
-
         public RatingRepo(AppDbContext appDbContext, IConfiguration configuration)
         {
             this.appDbContext = appDbContext;
             this.configuration = configuration;
         }
 
-        public async Task<RatingResponse> IncreaseMMR(RatingDTO ratingDTO)
+        private async Task<UserRating> FindUserByName(string name) =>
+    await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
+
+        public async Task<RatingResponse> ManipulateMMR(RatingDTO ratingDTO, RatigStatus status)
         {
-            return new RatingResponse(true, 1);
-            /*var userRating = await FindUserByID(ratingDTO.UserId);
-            if (userRating == null)
+
+            var getUser = await FindUserByName(ratingDTO.UserName);
+            if (getUser == null)
             {
-                return new RatingResponse(false, 0);
+                return new RatingResponse(401, "No user with this username was found"); //пользователь не найден
             }
-        
-            userRating.Rating += 25;
-            appDbContext.Rating.Update(userRating);
-            await appDbContext.SaveChangesAsync();
-        
-            return new RatingResponse(true, userRating.Rating);*/
-        }
-        
-        public async Task<RatingResponse> DecreaseMMR(RatingDTO ratingDTO)
-        {
-            return new RatingResponse(true, 1);
-            /*var userRating = await FindUserByID(ratingDTO.UserId);
-            if (userRating == null)
+
+            switch (status)
             {
-                return new RatingResponse(false, 0);
+                case RatigStatus.Victory:
+                    getUser.Rating += 25;
+                    break;
+                case RatigStatus.Defeat:
+                    getUser.Rating -= 25;
+                    break;
+                case RatigStatus.Draw:
+                    break;
+                default:
+                    break;
             }
-            
-            userRating.Rating -= 25;
-            appDbContext.Rating.Update(userRating);
-            await appDbContext.SaveChangesAsync();
-            
-            return new RatingResponse(true, userRating.Rating);*/
-        }
-        
-        public async Task<RatingResponse> getUserMMR(RatingDTO ratingDTO)
-        {
-            return new RatingResponse(true, 1);
-            /*var userRating = await FindUserByID(ratingDTO.UserId);
-            if (userRating == null)
-            {
-                return new RatingResponse(false, 0);
-            }
-            
-            return new RatingResponse(true, userRating.Rating);*/
+
+            appDbContext.SaveChanges();
+
+            return new RatingResponse(200, getUser.Rating.ToString());
         }
     }
 }

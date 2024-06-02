@@ -6,5 +6,10 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public record RegistrationResponse(int code, string Message = null!);
+    public class DeleteUserDTO
+    {
+        public string Name { get; set; }
+
+        public string Password { get; set; }
+    }
 }

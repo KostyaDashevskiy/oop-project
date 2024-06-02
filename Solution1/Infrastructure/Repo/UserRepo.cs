@@ -34,18 +34,11 @@ namespace Infrastructure.Repo
             var getUser = await FindUserByName(loginDTO.Name!);
             if (getUser == null)
             {
-                return new LoginResponse(false, "User not found"); //пользователь не найден
+                return new LoginResponse(401, "Invalid credentails: incorrect login or password"); //пользователь не найден
             }
 
-            bool checkPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
-            if(checkPassword)
-            {
-                return new LoginResponse(true, "Login successeful", GenerateJWTToken(getUser));//успешная регистрация
-            }
-            else
-            {
-                return new LoginResponse(false, "Invalid credentails");//неверные данные для входа
-            }
+            return new LoginResponse(200, "Login successeful", GenerateJWTToken(getUser));//успешная регистрация
+
         }
 
         private string GenerateJWTToken(ApplicationUser user)
@@ -79,13 +72,13 @@ namespace Infrastructure.Repo
             var getUserName = await FindUserByName(registerUserDTO.Name!);
             if(getUserName != null) 
             {
-                return new RegistrationResponse(false, "User is already exist");//пользователь уже есть в базе
+                return new RegistrationResponse(401, "Invalid credentails: this Username is already taken");//пользователь уже есть в базе
             }
 
             var getUserMail = await FindUserByMail(registerUserDTO.Email!);
             if (getUserMail != null)
             {
-                return new RegistrationResponse(false, "User is already exist");//пользователь уже есть в базе
+                return new RegistrationResponse(402, "Invalid credentails: this Email is already taken");//пользователь уже есть в базе
             }
 
             var newUser = new ApplicationUser()
@@ -97,14 +90,37 @@ namespace Infrastructure.Repo
 
             appDbContext.Users.Add(newUser);
 
-            /*appDbContext.Rating.Add(new UserRating()
+            appDbContext.Rating.Add(new UserRating()
             {
                 Id = newUser.Id,
                 UserName = newUser.Name,
                 Rating = 1000
-            });*/
+            });
             await appDbContext.SaveChangesAsync();
-            return new RegistrationResponse(true, "Registration complited");//регистрация пользователя успешна
+            return new RegistrationResponse(200, "Registration is successful");//регистрация пользователя успешна
+        }
+
+        private async Task<UserRating> FindRatingUserByName(string name) => 
+            await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
+
+        public async Task<DeleteUserResponse> DeleteUserAsync(DeleteUserDTO deleteUserDTO)
+        {
+            var getUser = await FindUserByName(deleteUserDTO.Name!);
+            if (getUser == null)
+            {
+                return new DeleteUserResponse(401, "User not found");
+            }
+            bool checkPassword = BCrypt.Net.BCrypt.Verify(deleteUserDTO.Password, getUser.Password);
+            if (!checkPassword)
+            {
+                return new DeleteUserResponse(402, "Invalid credentails:incorrect password");
+            }
+
+            appDbContext.Users.Remove(getUser);
+            appDbContext.Rating.Remove(await FindRatingUserByName(deleteUserDTO.Name));
+            await appDbContext.SaveChangesAsync();
+
+            return new DeleteUserResponse(200, "User has been successfully deleted");
         }
     }
 }

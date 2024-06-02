@@ -11,5 +11,7 @@ namespace Application.Contract
     {
         Task<RegistrationResponse> RegisterUserAsync(RegisterUserDTO registerUserDTO);
         Task<LoginResponse> LoginUserAsync(LoginDTO loginDTO);
+
+        Task<DeleteUserResponse> DeleteUserAsync(DeleteUserDTO deleteUserDTO);
     }
 }

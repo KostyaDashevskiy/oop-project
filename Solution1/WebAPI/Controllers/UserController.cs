@@ -28,5 +28,12 @@ namespace WebAPI.Controllers
             var result = await user.RegisterUserAsync(registerUserDTO);//->Applicaton\DTOs\
             return Ok(result);//->Applicaton\DTOs\RegistrationResponse
         }
+
+        [HttpDelete("deleteUser")]
+        public async Task<ActionResult<DeleteUserResponse>> DeleteUser(DeleteUserDTO deleteUserDTO)
+        {
+            var result = await user.DeleteUserAsync(deleteUserDTO);
+            return Ok(result);
+        }
     }
 }

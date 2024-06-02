@@ -42,7 +42,9 @@ namespace Infrastructure.DependencyInjection
                     (Encoding.UTF8.GetBytes(configuration["Jwt:Key"]!))
                 };
             });
+            services.AddScoped<IRating, RatingRepo>();
             services.AddScoped<IUser, UserRepo>();
+
             return services;
         }
     }

@@ -6,5 +6,5 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public record RegistrationResponse(int code, string Message = null!);
+    public record DeleteUserResponse(int code, string Message);
 }

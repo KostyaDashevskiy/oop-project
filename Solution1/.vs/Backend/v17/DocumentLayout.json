@@ -3,8 +3,63 @@
   "WorkspaceRootPath": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\infrastructure\\repo\\ratingrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repo\\ratingrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\ratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\ratingresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\ratingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\ratingdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\contract\\irating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\contract\\irating.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\infrastructure\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\repo\\userrepo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\deleteuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\deleteuserdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\loginresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\registrationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\registrationresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\webapi\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\controllers\\ratingcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\infrastructure\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2A2834C8-BB6B-45EB-AE76-F89C25A87FF2}|Infrastructure\\Infrastructure.csproj|solutionrelative:infrastructure\\dependencyinjection\\servicecontainer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\dtos\\deleteuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\dtos\\deleteuserresponse.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\application\\contract\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FE0668D1-7F3C-4FF7-BFDA-C2FC3AA7CFE5}|Application\\Application.csproj|solutionrelative:application\\contract\\iuser.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|c:\\users\\zamoc\\desktop\\oop\\project\\solution1\\webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{BF3E50D7-6EBD-4EDA-AF40-EF90C4224609}|WebAPI\\WebAPI.csproj|solutionrelative:webapi\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\Users\\zamoc\\AppData\\Roaming\\Microsoft\\UserSecrets\\02d0ad4f-2ee8-4232-bdc6-1e3dcff0ea74\\secrets.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,20 +69,200 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 5,
+              "Title": "DeleteUserDTO.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\DeleteUserDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\DeleteUserDTO.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\DeleteUserDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\DeleteUserDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAsAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T16:49:08.852Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "RegistrationResponse.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RegistrationResponse.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\RegistrationResponse.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RegistrationResponse.cs",
+              "RelativeToolTip": "Application\\DTOs\\RegistrationResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T16:26:11.011Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "LoginResponse.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\LoginResponse.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\LoginResponse.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\LoginResponse.cs",
+              "RelativeToolTip": "Application\\DTOs\\LoginResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAoAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T16:25:54.993Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "RatingDTO.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RatingDTO.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\RatingDTO.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RatingDTO.cs",
+              "RelativeToolTip": "Application\\DTOs\\RatingDTO.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAA7AAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:28:49.968Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "RatingController.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\Controllers\\RatingController.cs",
+              "RelativeDocumentMoniker": "WebAPI\\Controllers\\RatingController.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\Controllers\\RatingController.cs",
+              "RelativeToolTip": "WebAPI\\Controllers\\RatingController.cs",
+              "ViewState": "AQIAAAkAAAAAAAAAAAAAABkAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:44:02.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
               "Title": "UserController.cs",
               "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\Controllers\\UserController.cs",
               "RelativeDocumentMoniker": "WebAPI\\Controllers\\UserController.cs",
               "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\Controllers\\UserController.cs",
               "RelativeToolTip": "WebAPI\\Controllers\\UserController.cs",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABAAAAAAAAAA",
+              "ViewState": "AQIAABIAAAAAAAAAAAA5wCMAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-05-30T17:36:36.182Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserRepo.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\Repo\\UserRepo.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repo\\UserRepo.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\Repo\\UserRepo.cs",
+              "RelativeToolTip": "Infrastructure\\Repo\\UserRepo.cs",
+              "ViewState": "AQIAAGMAAAAAAAAAAAAmwA8AAAAiAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:49:24.605Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ServiceContainer.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "RelativeToolTip": "Infrastructure\\DependencyInjection\\ServiceContainer.cs",
+              "ViewState": "AQIAAA8AAAAAAAAAAAAAAC4AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:52:40.969Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "RatingRepo.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\Repo\\RatingRepo.cs",
+              "RelativeDocumentMoniker": "Infrastructure\\Repo\\RatingRepo.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Infrastructure\\Repo\\RatingRepo.cs",
+              "RelativeToolTip": "Infrastructure\\Repo\\RatingRepo.cs",
+              "ViewState": "AQIAACkAAAAAAAAAAAAwwCUAAAAbAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:29:39.053Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "IRating.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\Contract\\IRating.cs",
+              "RelativeDocumentMoniker": "Application\\Contract\\IRating.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\Contract\\IRating.cs",
+              "RelativeToolTip": "Application\\Contract\\IRating.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAA0AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:26:48.35Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "RatingResponse.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RatingResponse.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\RatingResponse.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\RatingResponse.cs",
+              "RelativeToolTip": "Application\\DTOs\\RatingResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T09:28:59.497Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "IUser.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\Contract\\IUser.cs",
+              "RelativeDocumentMoniker": "Application\\Contract\\IUser.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\Contract\\IUser.cs",
+              "RelativeToolTip": "Application\\Contract\\IUser.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAABOAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T16:48:31.475Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "DeleteUserResponse.cs",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\DeleteUserResponse.cs",
+              "RelativeDocumentMoniker": "Application\\DTOs\\DeleteUserResponse.cs",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\Application\\DTOs\\DeleteUserResponse.cs",
+              "RelativeToolTip": "Application\\DTOs\\DeleteUserResponse.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAkAAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-06-02T16:49:25.018Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "secrets.json",
+              "DocumentMoniker": "C:\\Users\\zamoc\\AppData\\Roaming\\Microsoft\\UserSecrets\\02d0ad4f-2ee8-4232-bdc6-1e3dcff0ea74\\secrets.json",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\02d0ad4f-2ee8-4232-bdc6-1e3dcff0ea74\\secrets.json",
+              "ToolTip": "C:\\Users\\zamoc\\AppData\\Roaming\\Microsoft\\UserSecrets\\02d0ad4f-2ee8-4232-bdc6-1e3dcff0ea74\\secrets.json",
+              "RelativeToolTip": "..\\..\\..\\..\\AppData\\Roaming\\Microsoft\\UserSecrets\\02d0ad4f-2ee8-4232-bdc6-1e3dcff0ea74\\secrets.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-02T09:35:49.652Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\appsettings.json",
+              "RelativeDocumentMoniker": "WebAPI\\appsettings.json",
+              "ToolTip": "C:\\Users\\zamoc\\Desktop\\oop\\project\\Solution1\\WebAPI\\appsettings.json",
+              "RelativeToolTip": "WebAPI\\appsettings.json",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAABaAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-06-02T09:35:56.106Z"
             }
           ]
         }

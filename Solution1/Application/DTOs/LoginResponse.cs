@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public record LoginResponse(bool Flag, string Message = null!, string Token = null! ); //поля в ответе
+    public record LoginResponse(int code, string Message = null!, string Token = null! ); //поля в ответе
     //применение в Infrastructure\Repo\UserRepo
 
 }
