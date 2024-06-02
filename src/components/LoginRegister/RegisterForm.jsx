@@ -37,6 +37,7 @@ function RegisterForm({ loginLink }) {
                         type='text'
                         placeholder='Username'
                         required
+                        pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$'
                         minLength='8'
                         value={name}
                         onChange={(e) => setName(e.target.value)}
@@ -59,6 +60,7 @@ function RegisterForm({ loginLink }) {
                         placeholder='Password'
                         required
                         minLength='6'
+                        pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
                         value={password}
                         onChange={(e) => setPassword(e.target.value)}
                     />
@@ -70,6 +72,7 @@ function RegisterForm({ loginLink }) {
                         placeholder='Confirm your password'
                         required
                         minLength='6'
+                        pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
                         value={confirmPassword}
                         style={{ border: password !== confirmPassword ? '2px solid red' : '' }}
                         onChange={(e) => setConfirmPassword(e.target.value)}
@@ -117,7 +120,7 @@ function RegisterForm({ loginLink }) {
             </form>
             <div
                 className={'RegisterForm__response' + (code !== '' ? ' code--' + code : '')}
-                style={{ display: code === 200 ? 'flex' : 'none' }}
+                style={{ display: code === '' ? 'none' : 'flex' }}
             >
                 <p>{message}</p>
             </div>

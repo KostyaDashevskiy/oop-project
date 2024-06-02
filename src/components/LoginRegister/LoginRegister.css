@@ -2,9 +2,9 @@
 .loginRegisterPage {
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     min-height: 100vh;
-    background: url(../Assets/gwent-table.jpeg) no-repeat;
+    background: url(../Assets/gwent.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -20,6 +20,7 @@
     align-items: center;
     overflow: hidden;
     transition: height 0.2s ease;
+    margin-top: 321px;
 }
 
 .loginRegisterPage__wrapper.active {
@@ -32,24 +33,24 @@
 }
 
 .loginRegisterPage__wrapper .loginRegisterPage__form-box.form-box--login {
-    transition: translate 0.18s ease;
-    translate: 0;
+    transition: transform 0.18s ease;
+    transform: translateY(0px);
 }
 
 .loginRegisterPage__wrapper.active .loginRegisterPage__form-box.form-box--login {
-    transition: translate 0.18s ease;
-    translate: -400px;
+    transition: transform 0.18s ease;
+    transform: translateY(-600px);
 }
 
 .loginRegisterPage__wrapper .loginRegisterPage__form-box.form-box--register {
     position: absolute;
-    transition: translate 0.18s ease;
-    translate: 400px;
+    transition: transform 0.18s ease;
+    transform: translateY(600px);
 }
 
 .loginRegisterPage__wrapper.active .loginRegisterPage__form-box.form-box--register {
-    transition: translate 0.18s ease;
-    translate: 0;
+    transition: transform 0.18s ease;
+    transform: translateY(0px);
 }
 
 /*LoginForm and RegisterForm*/
