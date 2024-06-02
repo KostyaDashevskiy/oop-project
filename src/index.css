@@ -103,3 +103,13 @@ h6 {
     font-size: inherit;
     font-weight: 400;
 }
+
+:root {
+    --header-color: #636284;
+    --menu-color: #8988b6;
+    --unactive-button-color: #ff9a09;
+    --active-button-color: #73c602;
+    --delete-account-color: #ff4242;
+    --text-black-color: #3a3a3a;
+    --pane-padding: 5px 42px;
+}
