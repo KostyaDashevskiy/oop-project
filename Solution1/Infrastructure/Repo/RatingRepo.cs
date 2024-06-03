@@ -1,6 +1,5 @@
 ﻿using System;
 using Application.Contract;
-using Application.DTOs;
 using Domain.Entities;
 using Infrastructure.Data;
 using System.Collections.Generic;
@@ -9,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Extensions.Configuration;
 using Microsoft.EntityFrameworkCore;
+using Application.DTOs.Rating;
 
 namespace Infrastructure.Repo
 {
@@ -23,25 +23,26 @@ namespace Infrastructure.Repo
             this.configuration = configuration;
         }
 
+        //поиск по столбцу таблицы Rating
         private async Task<UserRating> FindUserByName(string name) =>
-    await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
+            await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
 
+        //обработка запроса по рейтингу
         public async Task<RatingResponse> ManipulateMMR(RatingDTO ratingDTO, RatigStatus status)
         {
-
             var getUser = await FindUserByName(ratingDTO.UserName);
             if (getUser == null)
             {
-                return new RatingResponse(401, "No user with this username was found"); //пользователь не найден
+                return new RatingResponse(401, "No user with this username was found");
             }
 
             switch (status)
             {
                 case RatigStatus.Victory:
-                    getUser.Rating += 25;
+                    getUser.Rating += (2000 - getUser.Rating) / 40;
                     break;
                 case RatigStatus.Defeat:
-                    getUser.Rating -= 25;
+                    getUser.Rating -= (2000 - getUser.Rating) / 40;
                     break;
                 case RatigStatus.Draw:
                     break;

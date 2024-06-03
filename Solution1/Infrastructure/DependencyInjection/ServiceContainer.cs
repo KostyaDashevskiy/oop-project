@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.DependencyInjection
 {
+    //подключение базы данных к программе
     public static class ServiceContainer
     {
         public static IServiceCollection InfrastructureServices(this IServiceCollection services,

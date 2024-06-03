@@ -1,5 +1,8 @@
 ﻿using Application.Contract;
-using Application.DTOs;
+using Application.DTOs.ChangePassword;
+using Application.DTOs.DeleneUser;
+using Application.DTOs.Login;
+using Application.DTOs.RegisterUser;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -15,24 +18,35 @@ namespace WebAPI.Controllers
             this.user = user;
         }
 
-        [HttpPost("login")]//запрос на вход
+        //запрос на логин
+        [HttpPost("login")]
         public async Task<ActionResult<LoginResponse>> LogUserIn(LoginDTO loginDTO)
         {
-            var result= await user.LoginUserAsync(loginDTO);//->Applicaton\DTOs\LoginDTO
-            return Ok(result);//->Applicaton\DTOs\LoginResponse
+            var result= await user.LoginUserAsync(loginDTO);
+            return Ok(result);
         }
 
-        [HttpPost("register")]//запрос на регистрацию
+        //запрос на регистрацию
+        [HttpPost("register")]
         public async Task<ActionResult<RegistrationResponse>> RegisterUser(RegisterUserDTO registerUserDTO)
         {
-            var result = await user.RegisterUserAsync(registerUserDTO);//->Applicaton\DTOs\
-            return Ok(result);//->Applicaton\DTOs\RegistrationResponse
+            var result = await user.RegisterUserAsync(registerUserDTO);
+            return Ok(result);
         }
 
+        //запрос на удаление пользователя
         [HttpDelete("deleteUser")]
         public async Task<ActionResult<DeleteUserResponse>> DeleteUser(DeleteUserDTO deleteUserDTO)
         {
             var result = await user.DeleteUserAsync(deleteUserDTO);
+            return Ok(result);
+        }
+
+        //запрос на смену пароля
+        [HttpPost("changePassword")]
+        public async Task<ActionResult<ChangePasswordResponse>> ChangePassword(ChangePasswordDTO changePasswordDTO)
+        {
+            var result = await user.ChangePasswordAsync(changePasswordDTO);
             return Ok(result);
         }
     }

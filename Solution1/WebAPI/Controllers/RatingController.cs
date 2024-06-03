@@ -1,5 +1,5 @@
 ﻿using Application.Contract;
-using Application.DTOs;
+using Application.DTOs.Rating;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -18,12 +18,12 @@ namespace WebAPI.Controllers
             this.rating = rating;
         }
 
+        //запрос на получение/изменение рейтинга
         [HttpPost("rating")]
         public async Task<ActionResult<RatingResponse>> MMR(RatingDTO ratingDTO, RatigStatus status)
         {
             var result = await rating.ManipulateMMR(ratingDTO, status);
             return Ok(result);
         }
-
     }
 }

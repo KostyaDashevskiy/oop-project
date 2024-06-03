@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
+    //описание полей сущности Rating(столбцы таблицы Rating)
     public class UserRating
     {
         public int Id { get; set; }

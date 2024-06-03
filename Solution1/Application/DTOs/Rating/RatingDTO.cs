@@ -7,8 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs
+namespace Application.DTOs.Rating
 {
+    //класс определяет какие поля мы получаем в запросе на РЕЙТИНГ
     public class RatingDTO
     {
         [Required]

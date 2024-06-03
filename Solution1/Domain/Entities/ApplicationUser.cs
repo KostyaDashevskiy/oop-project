@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
+    //описание полей сущности Users(столбцы таблицы Users)
     public class ApplicationUser
     {
         public int Id { get; set; }
