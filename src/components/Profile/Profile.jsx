@@ -48,10 +48,12 @@ const Profile = () => {
                             Delite Account
                         </button>
                     </div>
-                    <div className='Profile__content'>
-                        {activeTab === 'basicInfo' && <BasicInfo />}
-                        {activeTab === 'otherInfo' && <OtherInfo />}
-                        {activeTab === 'deleteAccount' && <DeleteAccount />}
+                    <div className='Profile__content--wrapper'>
+                        <div className='Profile__content'>
+                            {activeTab === 'basicInfo' && <BasicInfo />}
+                            {activeTab === 'otherInfo' && <OtherInfo />}
+                            {activeTab === 'deleteAccount' && <DeleteAccount />}
+                        </div>
                     </div>
                 </div>
             </section>

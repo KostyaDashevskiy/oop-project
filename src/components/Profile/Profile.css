@@ -1,6 +1,5 @@
 .Profile {
-    background-image: url(../Assets/gwent.jpg);
-    background-size: cover;
+    background-color: var(--sidebar-background-color);
 }
 
 .Profile__container {
@@ -8,8 +7,6 @@
     max-width: 1780px;
     margin: 0 auto;
     padding: 0 30px;
-    background: rgb(255, 255, 255);
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 75%, rgba(255, 255, 255, 0) 100%);
 }
 
 /*profile sidebar*/
@@ -49,10 +46,30 @@
 }
 
 /*profile content*/
+.Profile__content--wrapper {
+    position: relative;
+    width: calc(100% - 220px);
+    background-image: url(../Assets/gwent.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.Profile__content--wrapper::after {
+    position: absolute;
+    content: '';
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+    z-index: 0;
+}
 
 .Profile__content {
+    position: relative;
     padding: 30px 40px;
     height: 100%;
+    z-index: 1;
 }
 
 /*Profile__BasicInfo */
