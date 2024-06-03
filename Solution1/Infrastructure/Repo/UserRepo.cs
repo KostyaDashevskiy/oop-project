@@ -54,6 +54,12 @@ namespace Infrastructure.Repo
                 return new LoginResponse(401, "Invalid credentails: incorrect login or password");
             }
 
+            bool checkPassword = BCrypt.Net.BCrypt.Verify(loginDTO.Password, getUser.Password);
+            if (!checkPassword)
+            {
+                return new LoginResponse(402, "Invalid credentails: incorrect login or password");
+            }
+
             return new LoginResponse(200, "Login successeful", GenerateJWTToken(getUser));
 
         }
@@ -111,6 +117,15 @@ namespace Infrastructure.Repo
                 UserName = newUser.Name,
                 Rating = 1000
             });
+            appDbContext.Statistics.Add(new GameStatistics()
+            {
+                Id = newUser.Id,
+                Name = newUser.Name,
+                TotalGames = 0,
+                Wins = 0,
+                Defeats = 0,
+                Draws = 0,
+            }) ;
 
             await appDbContext.SaveChangesAsync();
 
@@ -143,9 +158,25 @@ namespace Infrastructure.Repo
             return new DeleteUserResponse(200, "User has been successfully deleted");
         }
 
-        public async Task<ChangePasswordResponse> ChangePasswordAsync(ChangePasswordDTO deleteUserDTO)
+        //обработка запроса на смену пароля
+        public async Task<ChangePasswordResponse> ChangePasswordAsync(ChangePasswordDTO сhangePasswordDTO)
         {
-            return new ChangePasswordResponse(1, "1");
+            var getUser = await FindUserByName(сhangePasswordDTO.UserName!);
+            if (getUser == null)
+            {
+                return new ChangePasswordResponse(401, "User not found");
+            }
+
+            bool checkPassword = BCrypt.Net.BCrypt.Verify(сhangePasswordDTO.OldPassword, getUser.Password);
+            if (!checkPassword)
+            {
+                return new ChangePasswordResponse(402, "Invalid credentails:incorrect password");
+            }
+
+            getUser.Password = сhangePasswordDTO.NewPassword;
+            await appDbContext.SaveChangesAsync();
+
+            return new ChangePasswordResponse(200, "Password changed successfully");
         }
     }
 }

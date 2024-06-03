@@ -19,5 +19,6 @@ namespace Infrastructure.Data
         //добавление таблиц в базу данных
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<UserRating> Rating { get; set; }
+        public DbSet<GameStatistics> Statistics { get; set; }
     }
 }

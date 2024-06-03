@@ -23,7 +23,7 @@ namespace Infrastructure.Repo
             this.configuration = configuration;
         }
 
-        //поиск по столбцу таблицы Rating
+        //поиск по столбцу имени таблицы Rating
         private async Task<UserRating> FindUserByName(string name) =>
             await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
 
@@ -42,7 +42,7 @@ namespace Infrastructure.Repo
                     getUser.Rating += (2000 - getUser.Rating) / 40;
                     break;
                 case RatigStatus.Defeat:
-                    getUser.Rating -= (2000 - getUser.Rating) / 40;
+                    getUser.Rating -= getUser.Rating / 40;
                     break;
                 case RatigStatus.Draw:
                     break;

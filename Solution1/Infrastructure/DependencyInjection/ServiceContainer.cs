@@ -45,6 +45,7 @@ namespace Infrastructure.DependencyInjection
             });
             services.AddScoped<IRating, RatingRepo>();
             services.AddScoped<IUser, UserRepo>();
+            services.AddScoped<IGames, StatisticsRepo>();
 
             return services;
         }
