@@ -7,6 +7,7 @@ const ChangePassword = ({ cookies }) => {
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
     const [confirmNewPassword, setConfirmNewPassword] = useState('');
+
     const [code, setCode] = useState();
     const [message, setMessage] = useState('');
 
@@ -22,7 +23,7 @@ const ChangePassword = ({ cookies }) => {
             .then((res) => {
                 setCode(res.data.flag);
                 setMessage(res.data.message);
-                if (code == 200) {
+                if (code === 200) {
                     cookies.remove('name');
                     cookies.remove('jwt_token');
                 }
@@ -79,12 +80,24 @@ const ChangePassword = ({ cookies }) => {
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
                     minLength='6'
                     value={confirmNewPassword}
+                    style={{ border: newPassword !== confirmNewPassword ? '2px solid red' : '' }}
                     onChange={(e) => setConfirmNewPassword(e.target.value)}
                     required
                 />
             </div>
             {code && <p>{message}</p>}
-            <button className='ChangePassword__button' type='submit'>
+            <button
+                className='ChangePassword__button'
+                type='submit'
+                disabled={
+                    oldPassword === '' ||
+                    newPassword === '' ||
+                    confirmNewPassword === '' ||
+                    newPassword !== confirmNewPassword
+                        ? true
+                        : ''
+                }
+            >
                 Save
             </button>
         </form>

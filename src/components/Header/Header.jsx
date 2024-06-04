@@ -28,7 +28,7 @@ function Header({ cookies }) {
                 <div className='header_menu menu'>
                     <FaUser className='menu_icon' />
                     <button className='menu_button' onClick={() => setOpen(!isOpen)}>
-                        {cookies.get('name')}
+                        {cookies.get('name') !== undefined ? cookies.get('name') : 'Username'}
                     </button>
                     <div className={`header_dropdown ${isOpen ? 'active' : ''}`}>
                         <ul className='menu_list'>

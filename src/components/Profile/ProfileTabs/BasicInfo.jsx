@@ -1,9 +1,13 @@
-function BasicInfo() {
+import Cookies from 'universal-cookie';
+
+function BasicInfo({ cookies }) {
     return (
         <section className='Profile__BasicInfo BasicInfo'>
             <div className='BasicInfo__UserName'>
                 <div className='BasicInfo__UserName--label BasicInfo--label'>Username:</div>
-                <div className='BasicInfo__UserName--data BasicInfo--data'>placeholder</div>
+                <div className='BasicInfo__UserName--data BasicInfo--data'>
+                    {cookies.get('name') !== undefined ? cookies.get('name') : 'Username'}
+                </div>
             </div>
             <div className='BasicInfo__UserEmail'>
                 <div className='BasicInfo__UserEmail--label BasicInfo--label'>Email:</div>

@@ -157,6 +157,11 @@
     min-width: 200px;
 }
 
+.ChangePassword__button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 /*Profile__DeleteAccount*/
 
 .Profile__DeleteAccount {
@@ -199,4 +204,9 @@
     border-radius: 20px;
     font-size: 40px;
     min-width: 200px;
+}
+
+.DeleteAccount__button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
 }

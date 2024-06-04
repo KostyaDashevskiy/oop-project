@@ -40,7 +40,11 @@ const DeleteAccount = ({ cookies }) => {
                     required
                 />
             </div>
-            <button className='DeleteAccount__button' type='submit'>
+            <button
+                className='DeleteAccount__button'
+                type='submit'
+                disabled={password === '' || password.length < 6 ? true : ''}
+            >
                 Delite
             </button>
         </form>

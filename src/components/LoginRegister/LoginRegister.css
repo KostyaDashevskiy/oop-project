@@ -188,7 +188,6 @@
 .LoginForm__submit-btn:disabled,
 .RegisterForm__submit-btn:disabled {
     background-color: grey;
-    outline: red;
     cursor: not-allowed;
 }
 
