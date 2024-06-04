@@ -129,18 +129,22 @@
 }
 .LoginForm__response > *,
 .RegisterForm__response > * {
-    padding: 10px 0;
+    padding: 10px 10px;
 }
 
 .LoginForm__response.code--200,
 .RegisterForm__response.code--200 {
+    text-align: center;
     color: lightgreen;
     border: darkgreen double 3px;
     background-color: green;
 }
 
-.LoginForm__response.code--404,
-.RegisterForm__response.code--409 {
+.LoginForm__response.code--401,
+.LoginForm__response.code--402,
+.RegisterForm__response.code--401,
+.RegisterForm__response.code--402 {
+    text-align: center;
     color: red;
     border: darkred double 3px;
     background-color: lightcoral;
@@ -152,7 +156,8 @@
     align-items: center;
     width: fit-content;
     margin: 0 auto;
-    padding: 15px 30px;
+    margin-top: 20px;
+    padding: 15px 50px;
     background: #fff;
     border: none;
     outline: none;

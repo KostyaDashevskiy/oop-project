@@ -110,3 +110,93 @@
     font-size: 40px;
     min-width: 350px;
 }
+
+/*Profile__ChangePassword*/
+
+.Profile__ChangePassword {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.ChangePassword__OldPassword,
+.ChangePassword__NewPassword,
+.ChangePassword__ConfirmNewPassword {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.ChangePassword--label {
+    font-size: 30px;
+}
+
+.ChangePassword--data {
+    text-align: center;
+    color: var(--text-color-white);
+    background-color: var(--info-background-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 40px;
+    min-width: 350px;
+}
+
+.ChangePassword--data::placeholder {
+    color: var(--text-color-white);
+}
+
+.ChangePassword__button {
+    text-align: center;
+    color: var(--text-color-white);
+    background-color: var(--active-button-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 40px;
+    min-width: 200px;
+}
+
+/*Profile__DeleteAccount*/
+
+.Profile__DeleteAccount {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.DeleteAccount__Password {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.DeleteAccount--label {
+    font-size: 30px;
+}
+
+.DeleteAccount--data {
+    text-align: center;
+    color: var(--text-color-white);
+    background-color: var(--info-background-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 40px;
+    min-width: 350px;
+}
+
+.DeleteAccount--data::placeholder {
+    color: var(--text-color-white);
+}
+
+.DeleteAccount__button {
+    text-align: center;
+    color: var(--text-color-white);
+    background-color: var(--delete-account-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 40px;
+    min-width: 200px;
+}

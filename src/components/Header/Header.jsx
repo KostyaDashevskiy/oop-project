@@ -1,11 +1,19 @@
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import Cookies from 'universal-cookie';
 import { FaUser } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
 import './Header.css';
 
-function Header() {
+function Header({ cookies }) {
     const [isOpen, setOpen] = useState(false);
+    const [logout, setLogout] = useState(false);
+
+    function logoutFunc() {
+        cookies.remove('jwt_token');
+        cookies.remove('name');
+        return <Navigate to='/' />;
+    }
 
     return (
         <header className='header'>
@@ -20,7 +28,7 @@ function Header() {
                 <div className='header_menu menu'>
                     <FaUser className='menu_icon' />
                     <button className='menu_button' onClick={() => setOpen(!isOpen)}>
-                        USERNAME
+                        {cookies.get('name')}
                     </button>
                     <div className={`header_dropdown ${isOpen ? 'active' : ''}`}>
                         <ul className='menu_list'>
@@ -30,16 +38,17 @@ function Header() {
                                     <span>Profile</span>
                                 </li>
                             </Link>
-                            <Link to='/' className='menu_link'>
+                            <a className='menu_link' onClick={() => setLogout(!logout)}>
                                 <li className='menu_item'>
                                     <BiLogOut className='icon' />
                                     <span>Log out</span>
                                 </li>
-                            </Link>
+                            </a>
                         </ul>
                     </div>
                 </div>
             </div>
+            <div>{logout ? logoutFunc() : ''}</div>
         </header>
     );
 }

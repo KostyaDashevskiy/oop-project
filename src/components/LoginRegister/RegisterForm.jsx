@@ -7,8 +7,9 @@ function RegisterForm({ loginLink }) {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
     const [message, setMessage] = useState('');
-    const [code, setCode] = useState('');
+    const [code, setCode] = useState();
     const handleSubmit = (e) => {
         // Prevent the default submit and page reload
         e.preventDefault();
@@ -16,9 +17,12 @@ function RegisterForm({ loginLink }) {
         CreateApiEndpoint(END_POINTS.REGISTER)
             .registration({ name, email, password, confirmPassword })
             .then((res) => {
-                console.log(res.status, res.statusText);
                 setMessage(res.data.message);
-                setCode(res.status);
+                setCode(res.data.code);
+
+                //подтираем следы вмешательства
+                setPassword('');
+                setConfirmPassword('');
             })
             .catch((err) => console.log(err));
     };
@@ -87,8 +91,10 @@ function RegisterForm({ loginLink }) {
                 </div>
 
                 <div
-                    className={'RegisterForm__response' + (code !== '' ? ' code--' + code : '')}
-                    style={{ display: code !== 200 ? 'flex' : 'none' }}
+                    className={
+                        'RegisterForm__response' + (code !== undefined ? ' code--' + code : '')
+                    }
+                    style={{ display: code !== undefined ? 'flex' : 'none' }}
                 >
                     <p>{message}</p>
                 </div>
@@ -112,15 +118,21 @@ function RegisterForm({ loginLink }) {
                 <div className='RegisterForm__link'>
                     <p>
                         Already have an account?
-                        <a href='#!' onClick={loginLink}>
+                        <a
+                            href='#!'
+                            onClick={function () {
+                                loginLink();
+                                setCode();
+                            }}
+                        >
                             Login
                         </a>
                     </p>
                 </div>
             </form>
             <div
-                className={'RegisterForm__response' + (code !== '' ? ' code--' + code : '')}
-                style={{ display: code === '' ? 'none' : 'flex' }}
+                className={'RegisterForm__response' + (code !== undefined ? ' code--' + code : '')}
+                style={{ display: code === 200 ? 'flex' : 'none' }}
             >
                 <p>{message}</p>
             </div>
@@ -128,7 +140,12 @@ function RegisterForm({ loginLink }) {
                 href='#!'
                 className='RegisterForm__response-link'
                 style={{ display: code === 200 ? 'flex' : 'none' }}
-                onClick={loginLink}
+                onClick={function () {
+                    loginLink();
+                    setName('');
+                    setEmail('');
+                    setCode();
+                }}
             >
                 Login
             </a>

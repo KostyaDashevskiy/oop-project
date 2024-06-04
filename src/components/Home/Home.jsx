@@ -1,10 +1,10 @@
 import React from 'react';
 import Header from '../Header/Header';
 
-function Home() {
+function Home({ cookies }) {
     return (
         <>
-            <Header />
+            <Header cookies={cookies} />
             <div>Home page</div>
         </>
     );

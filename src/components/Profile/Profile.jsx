@@ -2,26 +2,18 @@ import { useState } from 'react';
 import './Profile.css';
 import Header from '../Header/Header';
 import BasicInfo from './ProfileTabs/BasicInfo';
+import ChangePassword from './ProfileTabs/ChangePassword';
 import DeleteAccount from './ProfileTabs/DeleteAccount';
-const Profile = () => {
+function Profile({ cookies }) {
     const [activeTab, setActiveTab] = useState('basicInfo');
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
     };
 
-    const OtherInfo = () => {
-        return (
-            <div>
-                <h2>Other Information</h2>
-                <p>This is the other information component.</p>
-            </div>
-        );
-    };
-
     return (
         <>
-            <Header />
+            <Header cookies={cookies} />
             <section className='Profile'>
                 <div className='Profile__container'>
                     <div className='Profile__sidebar sidebar'>
@@ -35,11 +27,11 @@ const Profile = () => {
                         </button>
                         <button
                             className={`sidebar__button ${
-                                activeTab === 'otherInfo' ? 'active' : ''
+                                activeTab === 'changePassword' ? 'active' : ''
                             }`}
-                            onClick={() => handleTabChange('otherInfo')}
+                            onClick={() => handleTabChange('changePassword')}
                         >
-                            Other Information
+                            Change Password
                         </button>
                         <button
                             className='sidebar__button sidebar__button--delite-account'
@@ -50,15 +42,15 @@ const Profile = () => {
                     </div>
                     <div className='Profile__content--wrapper'>
                         <div className='Profile__content'>
-                            {activeTab === 'basicInfo' && <BasicInfo />}
-                            {activeTab === 'otherInfo' && <OtherInfo />}
-                            {activeTab === 'deleteAccount' && <DeleteAccount />}
+                            {activeTab === 'basicInfo' && <BasicInfo cookies={cookies} />}
+                            {activeTab === 'changePassword' && <ChangePassword cookies={cookies} />}
+                            {activeTab === 'deleteAccount' && <DeleteAccount cookies={cookies} />}
                         </div>
                     </div>
                 </div>
             </section>
         </>
     );
-};
+}
 
 export default Profile;

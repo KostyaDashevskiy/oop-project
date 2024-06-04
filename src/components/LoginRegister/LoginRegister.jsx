@@ -4,7 +4,7 @@ import RegisterForm from './RegisterForm';
 
 import './LoginRegister.css';
 
-function LoginRegister() {
+function LoginRegister({ cookies }) {
     const [action, setAction] = useState('');
 
     const registerLink = () => {
@@ -19,7 +19,7 @@ function LoginRegister() {
         <section className='loginRegisterPage'>
             <div className={`loginRegisterPage__wrapper ${action}`}>
                 <div className='loginRegisterPage__form-box form-box--login'>
-                    <LoginForm registerLink={registerLink} />
+                    <LoginForm registerLink={registerLink} cookies={cookies} />
                 </div>
                 <div className='loginRegisterPage__form-box form-box--register'>
                     <RegisterForm loginLink={loginLink} />
