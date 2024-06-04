@@ -59,7 +59,7 @@ const DeleteAccount = ({ cookies, style }) => {
                 type='submit'
                 disabled={password === '' || password.length < 6 ? true : ''}
             >
-                Delite
+                Delete
             </button>
         </form>
     );

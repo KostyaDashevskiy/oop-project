@@ -43,7 +43,7 @@ function Profile({ cookies }) {
                                     className='sidebar__button sidebar__button--delite-account'
                                     onClick={() => handleTabChange('deleteAccount')}
                                 >
-                                    Delite Account
+                                    Delete Account
                                 </button>
                             </div>
                             <div className='Profile__content--wrapper'>
