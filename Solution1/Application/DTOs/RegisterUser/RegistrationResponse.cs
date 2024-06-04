@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Application.DTOs.RegisterUser
 {
     //класс определяет какие поля мы передаем в ответе на РЕГИСТРАЦИЮ
-    public record RegistrationResponse(int code, string Message = null!);
+    public record RegistrationResponse(int Code, string Message = null!);
 
 }

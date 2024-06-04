@@ -20,5 +20,6 @@ namespace Infrastructure.Data
         public DbSet<ApplicationUser> Users { get; set; }
         public DbSet<UserRating> Rating { get; set; }
         public DbSet<GameStatistics> Statistics { get; set; }
+        public DbSet<UserProfile> Profiles { get; set; }
     }
 }

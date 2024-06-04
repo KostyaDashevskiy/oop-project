@@ -1,5 +1,5 @@
 ﻿using Application.DTOs.ChangePassword;
-using Application.DTOs.DeleneUser;
+using Application.DTOs.DeleteUser;
 using Application.DTOs.Login;
 using Application.DTOs.RegisterUser;
 using System;

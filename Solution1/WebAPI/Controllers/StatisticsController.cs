@@ -16,10 +16,10 @@ namespace WebAPI.Controllers
             this.statistics = statistics;
         }
 
-        [HttpPost("statistics")]
-        public async Task<ActionResult<StatisticsResponse>> GetStatistics(StatisticsDTO statisticsDTO, GameStatus status)
+        [HttpPost("getStatistics")]
+        public async Task<ActionResult<StatisticsResponse>> GetStatistics(StatisticsDTO statisticsDTO)
         {
-            var result = await statistics.ManipulateGames(statisticsDTO, status);
+            var result = await statistics.GetStatistics(statisticsDTO);
             return Ok(result);
         }
     }

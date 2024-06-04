@@ -28,32 +28,13 @@ namespace Infrastructure.Repo
         private async Task<GameStatistics> FindUserByName(string name) =>
             await appDbContext.Statistics.FirstOrDefaultAsync(x => x.Name == name);
 
-        public async Task<StatisticsResponse> ManipulateGames(StatisticsDTO statisticsDTO, GameStatus status)
+        public async Task<StatisticsResponse> GetStatistics(StatisticsDTO statisticsDTO)
         {
             var getUser = await FindUserByName(statisticsDTO.UserName);
             if (getUser == null)
             {
                 return new StatisticsResponse(401, 0, 0, 0, 0);
             }
-
-            getUser.TotalGames++;
-
-            switch (status)
-            {
-                case GameStatus.Victory:
-                    getUser.Wins++;
-                    break;
-                case GameStatus.Defeat:
-                    getUser.Defeats++;
-                    break;
-                case GameStatus.Draw:
-                    getUser.Draws++;
-                    break;
-                default:
-                    break;
-            }
-
-            appDbContext.SaveChanges();
 
             return new StatisticsResponse(200, getUser.TotalGames, getUser.Wins, getUser.Defeats, getUser.Draws);
         }

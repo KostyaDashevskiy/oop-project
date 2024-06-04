@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.IdentityModel.Tokens.Configuration;
 using System.IdentityModel.Tokens.Jwt;
 using System.Web.Http;
-using Application.DTOs.DeleneUser;
+using Application.DTOs.DeleteUser;
 using Application.DTOs.Login;
 using Application.DTOs.RegisterUser;
 using Application.DTOs.ChangePassword;
@@ -43,6 +43,14 @@ namespace Infrastructure.Repo
         //поиск пользователя в таблице Rating по имени
         private async Task<UserRating> FindRatingUserByName(string name) =>
             await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
+
+        //поиск пользователя в таблице Statistics по имени
+        private async Task<GameStatistics> FindStatisticsUserByName(string name) =>
+           await appDbContext.Statistics.FirstOrDefaultAsync(x => x.Name == name);
+
+        //поиск по столбцу имени таблицы Profiles
+        private async Task<UserProfile> FindProfileUserByName(string name) =>
+            await appDbContext.Profiles.FirstOrDefaultAsync(x => x.Name == name);
 
 
         //обработка запроса на регистрацию
@@ -125,7 +133,15 @@ namespace Infrastructure.Repo
                 Wins = 0,
                 Defeats = 0,
                 Draws = 0,
-            }) ;
+            });
+            appDbContext.Profiles.Add(new UserProfile()
+            {
+                Id = newUser.Id,
+                Name = newUser.Name,
+                Email = newUser.Email,
+                Rating = "",
+                Wins = ""
+            }); ;
 
             await appDbContext.SaveChangesAsync();
 
@@ -152,6 +168,8 @@ namespace Infrastructure.Repo
 
             //так же пользователь удаляется из других баз
             appDbContext.Rating.Remove(await FindRatingUserByName(deleteUserDTO.Name));
+            appDbContext.Statistics.Remove(await FindStatisticsUserByName(deleteUserDTO.Name));
+            appDbContext.Profiles.Remove(await FindProfileUserByName(deleteUserDTO.Name));
 
             await appDbContext.SaveChangesAsync();
 
@@ -173,7 +191,7 @@ namespace Infrastructure.Repo
                 return new ChangePasswordResponse(402, "Invalid credentails:incorrect password");
             }
 
-            getUser.Password = сhangePasswordDTO.NewPassword;
+            getUser.Password = BCrypt.Net.BCrypt.HashPassword(сhangePasswordDTO.NewPassword);
             await appDbContext.SaveChangesAsync();
 
             return new ChangePasswordResponse(200, "Password changed successfully");

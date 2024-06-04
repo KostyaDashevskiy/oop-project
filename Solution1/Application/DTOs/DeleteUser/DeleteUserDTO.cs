@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Application.DTOs.DeleneUser
+namespace Application.DTOs.DeleteUser
 {
     //класс определяет какие поля мы получаем в запросе на УДАЛЕНИЕ ПОЛЬЗОВАТЕЛЯ
     public class DeleteUserDTO

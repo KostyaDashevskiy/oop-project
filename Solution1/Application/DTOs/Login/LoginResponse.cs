@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Application.DTOs.Login
 {
     //класс определяет какие поля мы передаем в ответе на ЛОГИН
-    public record LoginResponse(int code, string Message = null!, string Token = null!);
+    public record LoginResponse(int Code, string Message = null!, string Token = null!);
 
 }
