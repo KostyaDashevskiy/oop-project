@@ -2,31 +2,44 @@ import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
-const DeleteAccount = ({ cookies }) => {
+const DeleteAccount = ({ cookies, style }) => {
     const name = cookies.get('name');
     const [password, setPassword] = useState('');
     const [code, setCode] = useState();
     const [message, setMessage] = useState('');
 
+    function removeCookies() {
+        cookies.remove('name');
+        cookies.remove('jwt_token');
+    }
+
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        CreateApiEndpoint(END_POINTS.DeleteAccount)
-            .deliteAccount({ name, password })
+        console.log(name);
+        console.log(password);
+
+        CreateApiEndpoint(END_POINTS.DELETEACCOUNT)
+            .deleteAccount({ name, password })
             .then((res) => {
+                console.log(res);
                 setCode(res.data.code);
                 setMessage(res.data.message);
-                if (code === 200) {
-                    cookies.remove('name');
-                    cookies.remove('jwt_token');
+                if (res.data.code === 200) {
+                    removeCookies();
                 }
-            });
+            })
+            .catch((err) => console.log(err));
 
         setPassword('');
     };
 
     return (
-        <form className='Profile__DeleteAccount DeleteAccount' onSubmit={handleSubmit}>
+        <form
+            className='Profile__DeleteAccount DeleteAccount'
+            onSubmit={handleSubmit}
+            style={style}
+        >
             <div className='DeleteAccount__Password'>
                 <div className='DeleteAccount__Password--label DeleteAccount--label'>Password:</div>
                 <input
@@ -40,6 +53,7 @@ const DeleteAccount = ({ cookies }) => {
                     required
                 />
             </div>
+            {code && <p>{message}</p>}
             <button
                 className='DeleteAccount__button'
                 type='submit'

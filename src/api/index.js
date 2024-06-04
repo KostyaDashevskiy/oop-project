@@ -1,12 +1,16 @@
 import axios from 'axios';
 
-const BASE_URL = 'http://localhost:5286/api/User/';
+const BASE_URL = 'http://localhost:5286/api/';
 
 export const END_POINTS = {
-    LOGIN: 'login',
-    REGISTER: 'register',
-    CHANGEPASSWORD: 'changePassword',
-    DELITE: 'deliteUser',
+    //User CRUD
+    LOGIN: 'User/login',
+    REGISTER: 'User/register',
+    CHANGEPASSWORD: 'User/changePassword',
+    DELETEACCOUNT: 'User/deleteUser',
+
+    //Profule
+    GETPROFILE: 'Profile/getProfile',
 };
 
 export const CreateApiEndpoint = (endpoint) => {
@@ -15,7 +19,8 @@ export const CreateApiEndpoint = (endpoint) => {
     return {
         login: (data) => axios.post(url, data),
         registration: (data) => axios.post(url, data),
+        getProfile: (data) => axios.post(url, data),
         changePassword: (data) => axios.post(url, data),
-        deliteAccount: (data) => axios.delete(url, data),
+        deleteAccount: (data) => axios.delete(url, (data = { data })),
     };
 };

@@ -1,0 +1,112 @@
+#notfound {
+    position: relative;
+    height: 100vh;
+}
+
+#notfound .notfound {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notfound {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.notfound .notfound-404 {
+    height: 190px;
+}
+
+.notfound .notfound-404 h1 {
+    font-size: 146px;
+    font-weight: 700;
+    margin: 0px;
+    color: #232323;
+}
+
+.notfound .notfound-404 h1 > span {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-image: url('../Assets/emoji.png');
+    background-size: cover;
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    z-index: -1;
+}
+
+.notfound h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    color: #232323;
+}
+
+.notfound p {
+    color: #787878;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.notfound a {
+    display: inline-block;
+    padding: 12px 30px;
+    font-weight: 700;
+    background-color: var(--unactive-button-color);
+    color: #fff;
+    border-radius: 40px;
+    text-decoration: none;
+    -webkit-transition: 0.2s all;
+    transition: 0.2s all;
+}
+
+.notfound a:hover {
+    opacity: 0.8;
+}
+
+.notfound a {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none;
+    background-color: #6b8e23; /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif; /* Шрифт, похожий на стиле игры */
+}
+
+.notfound a:hover {
+    background-color: #7fbf2f; /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.notfound a:active {
+    box-shadow: 0 3px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
+}
+
+@media only screen and (max-width: 767px) {
+    .notfound .notfound-404 {
+        height: 115px;
+    }
+    .notfound .notfound-404 h1 {
+        font-size: 86px;
+    }
+    .notfound .notfound-404 h1 > span {
+        width: 86px;
+        height: 86px;
+    }
+}

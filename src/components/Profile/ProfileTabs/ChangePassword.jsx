@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
-const ChangePassword = ({ cookies }) => {
+const ChangePassword = ({ cookies, style }) => {
     const userName = cookies.get('name');
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -10,6 +10,11 @@ const ChangePassword = ({ cookies }) => {
 
     const [code, setCode] = useState();
     const [message, setMessage] = useState('');
+
+    function removeCookies() {
+        cookies.remove('name');
+        cookies.remove('jwt_token');
+    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -21,11 +26,11 @@ const ChangePassword = ({ cookies }) => {
                 newPassword,
             })
             .then((res) => {
-                setCode(res.data.flag);
+                console.log(res);
+                setCode(res.data.code);
                 setMessage(res.data.message);
-                if (code === 200) {
-                    cookies.remove('name');
-                    cookies.remove('jwt_token');
+                if (res.data.code === 200) {
+                    removeCookies();
                 }
             })
             .catch((err) => console.log(err));
@@ -37,7 +42,11 @@ const ChangePassword = ({ cookies }) => {
     };
 
     return (
-        <form className='Profile__ChangePassword ChangePassword' onSubmit={handleSubmit}>
+        <form
+            className='Profile__ChangePassword ChangePassword'
+            onSubmit={handleSubmit}
+            style={style}
+        >
             <div className='ChangePassword__OldPassword'>
                 <div className='ChangePassword__OldPassword--label ChangePassword--label'>
                     Old password:
