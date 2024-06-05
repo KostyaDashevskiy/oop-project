@@ -1,5 +1,5 @@
 import { Card, TypeCard } from '../Types';
-import { cards as allCards, cards } from '../Cards';
+import { cardsPlants as cardsPlants, cardsZombie as cardsZombie } from '../Cards';
 import { action, makeObservable, observable } from 'mobx';
 import '../../../components/Assets/table2.png';
 
@@ -9,13 +9,15 @@ import '../../../components/Assets/table2.png';
 
 class Game {
     isMyStep: boolean = false; // флаг, показывающий мой ли сейчас ход
-    deckCards: Array<Card> = []; // карты в колоде
+    deckCardsPlants: Array<Card> = [];
+    deckCardsZombie: Array<Card> = []; // карты в колоде
     //lot: Array<number> = [0, 1]; // жребий
 
     constructor() {
         makeObservable(this, {
             isMyStep: observable,
-            deckCards: observable,
+            deckCardsPlants: observable,
+            deckCardsZombie: observable,
             //lot: observable,
             reduceCards: action,
         });
@@ -23,7 +25,8 @@ class Game {
 
     // Перемешать колоду
     mixDeck() {
-        this.deckCards = this.deckCards.sort(() => Math.random() - 0.5);
+        this.deckCardsPlants = this.deckCardsPlants.sort(() => Math.random() - 0.5);
+        this.deckCardsZombie = this.deckCardsZombie.sort(() => Math.random() - 0.5);
     }
 
     // определение чей ход будет первый, жребий
@@ -35,8 +38,8 @@ class Game {
     }
 
     // уменьшение количества карт общей колоды
-    reduceCards(countCards: number): Array<Card> {
-        const removedCard = this.deckCards.splice(0, countCards);
+    reduceCards(countCards: number, deck: Array<Card>): Array<Card> {
+        const removedCard = deck.splice(0, countCards);
 
         return removedCard; // возвращает удаленные карты
     }
@@ -47,11 +50,12 @@ class Game {
     }
 
     startGame() {
-        this.deckCards = allCards;
+        this.deckCardsPlants = cardsPlants;
+        this.deckCardsZombie = cardsZombie;
         this.mixDeck();
 
-        const firstHisCards = this.reduceCards(5);
-        const firstMyCards = this.reduceCards(5);
+        const firstHisCards = this.reduceCards(5, this.deckCardsZombie);
+        const firstMyCards = this.reduceCards(5, this.deckCardsPlants);
 
         this.defineStep();
 

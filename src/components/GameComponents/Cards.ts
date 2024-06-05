@@ -2,7 +2,7 @@ import { Card, TypeCard } from './Types';
 
 //import imgh as string from '../Assets/cards img/p-sunflower.png';
 
-export const cards: Array<Card> = [
+export const cardsPlants: Array<Card> = [
     // 9 - растения 1 - щиты
     { id: 911, points: 40, type: TypeCard.shield, img: 'cards img/p-sunflower.png' },
     { id: 912, points: 35, type: TypeCard.shield, img: 'cards img/p-aloe.png' },
@@ -29,7 +29,9 @@ export const cards: Array<Card> = [
     { id: 936, points: 20, type: TypeCard.sniper, img: 'cards img/p-pea-pod.png' },
     { id: 937, points: 10, type: TypeCard.sniper, img: 'cards img/p-peashooter.png' },
     { id: 938, points: 15, type: TypeCard.sniper, img: 'cards img/p-snow-pea.png' },
+];
 
+export const cardsZombie: Array<Card> = [
     // 7 - зомби 1 - щиты
     { id: 711, points: 15, type: TypeCard.shield, img: 'cards img/z-flag.png' },
     { id: 712, points: 40, type: TypeCard.shield, img: 'cards img/z-box.png' },
