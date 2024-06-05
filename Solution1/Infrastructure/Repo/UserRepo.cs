@@ -52,6 +52,17 @@ namespace Infrastructure.Repo
         private async Task<UserProfile> FindProfileUserByName(string name) =>
             await appDbContext.Profiles.FirstOrDefaultAsync(x => x.Name == name);
 
+        //поиск пользователя в таблице Country по имени
+        private async Task<UserCountry> FindCountyUserByName(string name) =>
+           await appDbContext.Country.FirstOrDefaultAsync(x => x.Name == name);
+
+        //поиск пользователя в таблице Twitch по имени
+        private async Task<UserTwitch> FindTwitchUserByName(string name) =>
+           await appDbContext.Twitch.FirstOrDefaultAsync(x => x.UserName == name);
+
+        //поиск пользователя в таблице Info по имени
+        private async Task<UserInfo> FindTnfoUserByName(string name) =>
+           await appDbContext.Info.FirstOrDefaultAsync(x => x.Name == name);
 
         //обработка запроса на регистрацию
         public async Task<LoginResponse> LoginUserAsync(LoginDTO loginDTO)
@@ -87,7 +98,7 @@ namespace Infrastructure.Repo
                 issuer: configuration["Jwt:Issuer"],
                 audience: configuration["Jwt:Audience"],
                 claims: userClaims,
-                expires: DateTime.Now.AddDays(5),
+                expires: DateTime.Now.AddHours(1),
                 signingCredentials: credentails
                 ) ;
             return new JwtSecurityTokenHandler().WriteToken(token);
@@ -139,9 +150,28 @@ namespace Infrastructure.Repo
                 Id = newUser.Id,
                 Name = newUser.Name,
                 Email = newUser.Email,
-                Rating = "-",
+                Rating = "1000",
                 Wins = "-"
-            }); ;
+            });
+            appDbContext.Country.Add(new UserCountry()
+            {
+                Id = newUser.Id,
+                Name = newUser.Name,
+                Country = "-"
+            });
+            appDbContext.Twitch.Add(new UserTwitch()
+            {
+                Id = newUser.Id,
+                UserName = newUser.Name,
+                Link = "-"
+            });
+            appDbContext.Info.Add(new UserInfo()
+            {
+                Id = newUser.Id,
+                Name = newUser.Name,
+                Country = "-",
+                Link= "-"
+            });
 
             await appDbContext.SaveChangesAsync();
 
@@ -170,6 +200,9 @@ namespace Infrastructure.Repo
             appDbContext.Rating.Remove(await FindRatingUserByName(deleteUserDTO.UserName));
             appDbContext.Statistics.Remove(await FindStatisticsUserByName(deleteUserDTO.UserName));
             appDbContext.Profiles.Remove(await FindProfileUserByName(deleteUserDTO.UserName));
+            appDbContext.Country.Remove(await FindCountyUserByName(deleteUserDTO.UserName));
+            appDbContext.Twitch.Remove(await FindTwitchUserByName(deleteUserDTO.UserName));
+            appDbContext.Info.Remove(await FindTnfoUserByName(deleteUserDTO.UserName));
 
             await appDbContext.SaveChangesAsync();
 

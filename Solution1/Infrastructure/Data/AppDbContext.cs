@@ -21,5 +21,9 @@ namespace Infrastructure.Data
         public DbSet<UserRating> Rating { get; set; }
         public DbSet<GameStatistics> Statistics { get; set; }
         public DbSet<UserProfile> Profiles { get; set; }
+        public DbSet<UserCountry> Country { get; set; }
+        public DbSet<UserTwitch> Twitch { get; set; }
+        public DbSet<UserInfo> Info { get; set; }
+
     }
 }

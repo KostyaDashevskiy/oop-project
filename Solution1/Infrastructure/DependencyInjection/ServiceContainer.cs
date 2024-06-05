@@ -50,6 +50,9 @@ namespace Infrastructure.DependencyInjection
             services.AddScoped<IUser, UserRepo>();
             services.AddScoped<IGames, StatisticsRepo>();
             services.AddScoped<IProfile, ProfileRepo>();
+            services.AddScoped<ICountry, CountryRepo>();
+            services.AddScoped<ITwitch, TwitchRepo>();
+            services.AddScoped<IInfo, InfoRepo>();
 
             return services;
         }
