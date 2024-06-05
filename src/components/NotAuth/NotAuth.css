@@ -65,9 +65,10 @@
 .notnuth a {
     display: inline-block;
     padding: 12px 24px;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: var(--text-color-white);
     text-decoration: none;
     background-color: #6b8e23; /* Цвет в стиле растений */
     border-radius: 10px;

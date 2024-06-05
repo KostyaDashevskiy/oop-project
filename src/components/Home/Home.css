@@ -22,7 +22,8 @@
     display: inline-block;
     padding: 50px 100px; /* Увеличение размеров */
     font-size: 5em; /* Увеличение размера шрифта */
-    font-weight: bold;
+    font-weight: 400;
+    letter-spacing: 4px;
     color: #ffffff;
     text-decoration: none;
     background-color: #6b8e23; /* Цвет в стиле растений */

@@ -40,7 +40,9 @@ function Profile({ cookies }) {
                                     Change Password
                                 </button>
                                 <button
-                                    className='sidebar__button sidebar__button--delite-account'
+                                    className={`sidebar__button sidebar__button--delite-account ${
+                                        activeTab === 'deleteAccount' ? 'active' : ''
+                                    }`}
                                     onClick={() => handleTabChange('deleteAccount')}
                                 >
                                     Delete Account
@@ -53,20 +55,10 @@ function Profile({ cookies }) {
                                     ) : (
                                         <BasicInfo cookies={cookies} />
                                     )}
-                                    {activeTab !== 'changePassword' ? (
-                                        <ChangePassword
-                                            style={{ display: 'none' }}
-                                            cookies={cookies}
-                                        />
-                                    ) : (
+                                    {activeTab === 'changePassword' && (
                                         <ChangePassword cookies={cookies} />
                                     )}
-                                    {activeTab !== 'deleteAccount' ? (
-                                        <DeleteAccount
-                                            style={{ display: 'none' }}
-                                            cookies={cookies}
-                                        />
-                                    ) : (
+                                    {activeTab === 'deleteAccount' && (
                                         <DeleteAccount cookies={cookies} />
                                     )}
                                 </div>

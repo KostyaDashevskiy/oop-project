@@ -15,7 +15,17 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Grobold';
+    src: url('./fonts/grobold-webfont.woff') format('woff'),
+        url('./fonts/grobold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*Обнуление*/
+
 * {
     padding: 0;
     margin: 0;

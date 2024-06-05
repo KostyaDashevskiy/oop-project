@@ -1,16 +1,20 @@
 import { useState } from 'react';
+import { Navigate } from 'react-router-dom';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
-const DeleteAccount = ({ cookies, style }) => {
+const DeleteAccount = ({ cookies }) => {
     const name = cookies.get('name');
     const [password, setPassword] = useState('');
+
     const [code, setCode] = useState();
     const [message, setMessage] = useState('');
+    const [logout, setLogout] = useState(false);
 
-    function removeCookies() {
-        cookies.remove('name');
+    function logoutFunc() {
         cookies.remove('jwt_token');
+        cookies.remove('name');
+        return <Navigate to='/' />;
     }
 
     const handleSubmit = (e) => {
@@ -26,7 +30,7 @@ const DeleteAccount = ({ cookies, style }) => {
                 setCode(res.data.code);
                 setMessage(res.data.message);
                 if (res.data.code === 200) {
-                    removeCookies();
+                    setLogout(!logout);
                 }
             })
             .catch((err) => console.log(err));
@@ -35,33 +39,34 @@ const DeleteAccount = ({ cookies, style }) => {
     };
 
     return (
-        <form
-            className='Profile__DeleteAccount DeleteAccount'
-            onSubmit={handleSubmit}
-            style={style}
-        >
-            <div className='DeleteAccount__Password'>
-                <div className='DeleteAccount__Password--label DeleteAccount--label'>Password:</div>
-                <input
-                    className='DeleteAccount__Password--data DeleteAccount--data'
-                    type='password'
-                    placeholder='Password'
-                    pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
-                    minLength='6'
-                    value={password}
-                    onChange={(e) => setPassword(e.target.value)}
-                    required
-                />
-            </div>
-            {code && <p>{message}</p>}
-            <button
-                className='DeleteAccount__button'
-                type='submit'
-                disabled={password === '' || password.length < 6 ? true : ''}
-            >
-                Delete
-            </button>
-        </form>
+        <>
+            <form className='Profile__DeleteAccount DeleteAccount' onSubmit={handleSubmit}>
+                <div className='DeleteAccount__Password'>
+                    <div className='DeleteAccount__Password--label DeleteAccount--label'>
+                        Password:
+                    </div>
+                    <input
+                        className='DeleteAccount__Password--data DeleteAccount--data'
+                        type='password'
+                        placeholder='Password'
+                        pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
+                        minLength='6'
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+                </div>
+                {code && <p>{message}</p>}
+                <button
+                    className='DeleteAccount__button'
+                    type='submit'
+                    disabled={password === '' || password.length < 6 ? true : ''}
+                >
+                    Delete
+                </button>
+            </form>
+            <div>{logout ? logoutFunc() : ''}</div>
+        </>
     );
 };
 

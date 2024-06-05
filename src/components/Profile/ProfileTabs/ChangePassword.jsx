@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
-const ChangePassword = ({ cookies, style }) => {
+const ChangePassword = ({ cookies }) => {
     const userName = cookies.get('name');
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -10,11 +10,6 @@ const ChangePassword = ({ cookies, style }) => {
 
     const [code, setCode] = useState();
     const [message, setMessage] = useState('');
-
-    function removeCookies() {
-        cookies.remove('name');
-        cookies.remove('jwt_token');
-    }
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -29,9 +24,6 @@ const ChangePassword = ({ cookies, style }) => {
                 console.log(res);
                 setCode(res.data.code);
                 setMessage(res.data.message);
-                if (res.data.code === 200) {
-                    removeCookies();
-                }
             })
             .catch((err) => console.log(err));
 
@@ -42,11 +34,7 @@ const ChangePassword = ({ cookies, style }) => {
     };
 
     return (
-        <form
-            className='Profile__ChangePassword ChangePassword'
-            onSubmit={handleSubmit}
-            style={style}
-        >
+        <form className='Profile__ChangePassword ChangePassword' onSubmit={handleSubmit}>
             <div className='ChangePassword__OldPassword'>
                 <div className='ChangePassword__OldPassword--label ChangePassword--label'>
                     Old password:
@@ -94,6 +82,13 @@ const ChangePassword = ({ cookies, style }) => {
                     required
                 />
             </div>
+            {oldPassword === newPassword &&
+                newPassword === confirmNewPassword &&
+                oldPassword !== '' &&
+                newPassword !== '' &&
+                confirmNewPassword !== '' && (
+                    <p>The new password cannot be the same as the old one</p>
+                )}
             {code && <p>{message}</p>}
             <button
                 className='ChangePassword__button'
@@ -102,7 +97,8 @@ const ChangePassword = ({ cookies, style }) => {
                     oldPassword === '' ||
                     newPassword === '' ||
                     confirmNewPassword === '' ||
-                    newPassword !== confirmNewPassword
+                    newPassword !== confirmNewPassword ||
+                    (oldPassword === newPassword && newPassword === confirmNewPassword)
                         ? true
                         : ''
                 }

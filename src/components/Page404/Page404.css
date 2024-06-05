@@ -59,31 +59,15 @@
 
 .notfound a {
     display: inline-block;
-    padding: 12px 30px;
-    font-weight: 700;
-    background-color: var(--unactive-button-color);
-    color: #fff;
-    border-radius: 40px;
-    text-decoration: none;
-    -webkit-transition: 0.2s all;
-    transition: 0.2s all;
-}
-
-.notfound a:hover {
-    opacity: 0.8;
-}
-
-.notfound a {
-    display: inline-block;
     padding: 12px 24px;
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #ffffff;
+    font-size: 24px;
+    font-weight: 400;
+    color: var(--text-color-white);
     text-decoration: none;
     background-color: #6b8e23; /* Цвет в стиле растений */
     border-radius: 10px;
     border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    box-shadow: 0 10px #556b2f; /* Тень для кнопки */
     transition: all 0.2s ease;
     font-family: 'Grobold', sans-serif; /* Шрифт, похожий на стиле игры */
 }
