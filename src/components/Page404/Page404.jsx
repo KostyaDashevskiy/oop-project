@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Page404.css';
 
-function Page404() {
+function Page404({ cookies }) {
     return (
         <section id='notfound'>
             <div class='notfound'>
