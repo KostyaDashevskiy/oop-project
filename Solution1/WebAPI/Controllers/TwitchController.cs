@@ -1,9 +1,7 @@
 ﻿using Application.Contract;
 using Application.DTOs.Country;
 using Application.DTOs.Twitch;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Diagnostics;
 
 namespace WebAPI.Controllers
 {

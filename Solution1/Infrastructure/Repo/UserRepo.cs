@@ -4,16 +4,9 @@ using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.IdentityModel.Tokens;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
-using System.Security.Cryptography;
 using System.Text;
-using System.Threading.Tasks;
-using Microsoft.IdentityModel.Tokens.Configuration;
 using System.IdentityModel.Tokens.Jwt;
-using System.Web.Http;
 using Application.DTOs.DeleteUser;
 using Application.DTOs.Login;
 using Application.DTOs.RegisterUser;
@@ -21,6 +14,7 @@ using Application.DTOs.ChangePassword;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по ПОЛЬЗОВАТЕЛЮ из контроллера
     internal class UserRepo : IUser
     {
         private readonly AppDbContext appDbContext;
@@ -127,16 +121,16 @@ namespace Infrastructure.Repo
             };
 
             //добавление пользователя в базу
-            appDbContext.Users.Add(newUser);
+            appDbContext.Users.AddAsync(newUser);
 
             //только что созданный пользователь сразу добавляется в другие базы
-            appDbContext.Rating.Add(new UserRating()
+            appDbContext.Rating.AddAsync(new UserRating()
             {
                 Id = newUser.Id,
                 UserName = newUser.Name,
                 Rating = 1000
             });
-            appDbContext.Statistics.Add(new GameStatistics()
+            appDbContext.Statistics.AddAsync(new GameStatistics()
             {
                 Id = newUser.Id,
                 Name = newUser.Name,
@@ -145,7 +139,7 @@ namespace Infrastructure.Repo
                 Defeats = 0,
                 Draws = 0,
             });
-            appDbContext.Profiles.Add(new UserProfile()
+            appDbContext.Profiles.AddAsync(new UserProfile()
             {
                 Id = newUser.Id,
                 Name = newUser.Name,
@@ -153,19 +147,19 @@ namespace Infrastructure.Repo
                 Rating = "1000",
                 Wins = "-"
             });
-            appDbContext.Country.Add(new UserCountry()
+            appDbContext.Country.AddAsync(new UserCountry()
             {
                 Id = newUser.Id,
                 Name = newUser.Name,
                 Country = "-"
             });
-            appDbContext.Twitch.Add(new UserTwitch()
+            appDbContext.Twitch.AddAsync(new UserTwitch()
             {
                 Id = newUser.Id,
                 UserName = newUser.Name,
                 Link = "-"
             });
-            appDbContext.Info.Add(new UserInfo()
+            appDbContext.Info.AddAsync(new UserInfo()
             {
                 Id = newUser.Id,
                 Name = newUser.Name,
@@ -225,6 +219,7 @@ namespace Infrastructure.Repo
             }
 
             getUser.Password = BCrypt.Net.BCrypt.HashPassword(сhangePasswordDTO.NewPassword);
+
             await appDbContext.SaveChangesAsync();
 
             return new ChangePasswordResponse(200, "Password changed successfully");

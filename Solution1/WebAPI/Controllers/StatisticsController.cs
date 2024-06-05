@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Application.Contract;
 using Application.DTOs.Statistics;
-using Application.DTOs.Rating;
 
 namespace WebAPI.Controllers
 {

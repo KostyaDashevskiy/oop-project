@@ -4,14 +4,10 @@ using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по СТРАНЕ из контроллера
     internal class CountryRepo : ICountry
     {
         private readonly AppDbContext appDbContext;
@@ -37,7 +33,7 @@ namespace Infrastructure.Repo
 
             getUser.Country = countryDTO.Country;
 
-            appDbContext.SaveChanges();
+            appDbContext.SaveChangesAsync();
 
             return new CountryResponse(200, "Success");
         }

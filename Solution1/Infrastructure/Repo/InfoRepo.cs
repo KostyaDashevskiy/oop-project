@@ -4,14 +4,10 @@ using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по ИНФОРМАЦИИ ПОЛЬЗОВАТЕЛЯ из контроллера
     internal class InfoRepo : IInfo
     {
         private readonly AppDbContext appDbContext;

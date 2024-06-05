@@ -1,8 +1,6 @@
 ﻿using Application.Contract;
 using Application.DTOs.Country;
-using Application.DTOs.Profile;
 using Microsoft.AspNetCore.Mvc;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace WebAPI.Controllers
 {

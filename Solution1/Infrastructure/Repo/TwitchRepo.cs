@@ -1,18 +1,13 @@
 ﻿using Application.Contract;
-using Application.DTOs.Country;
 using Application.DTOs.Twitch;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по ТВИЧУ из контроллера
     internal class TwitchRepo : ITwitch
     {
         private readonly AppDbContext appDbContext;
@@ -38,7 +33,7 @@ namespace Infrastructure.Repo
 
             getUser.Link = twitchDTO.TwitchLink;
 
-            appDbContext.SaveChanges();
+            appDbContext.SaveChangesAsync();
 
             return new TwitchResponse(200, "Success");
         }

@@ -3,7 +3,6 @@ using Application.DTOs.ChangePassword;
 using Application.DTOs.DeleteUser;
 using Application.DTOs.Login;
 using Application.DTOs.RegisterUser;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

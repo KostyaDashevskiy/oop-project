@@ -1,7 +1,5 @@
 ﻿using Application.Contract;
 using Application.DTOs.Profile;
-using Application.DTOs.Rating;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace WebAPI.Controllers

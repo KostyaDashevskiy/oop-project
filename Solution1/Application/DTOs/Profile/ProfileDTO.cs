@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace Application.DTOs.Profile
 {
+    //класс определяет какие поля мы получаем в запросе на ПРОФИЛЬ
     public class ProfileDTO
     {
         [Required]

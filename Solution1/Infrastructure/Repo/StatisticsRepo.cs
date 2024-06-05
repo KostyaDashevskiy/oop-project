@@ -1,18 +1,13 @@
 ﻿using Application.Contract;
-using Application.DTOs.Rating;
 using Application.DTOs.Statistics;
 using Domain.Entities;
 using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по СТАТИСТИКЕ из контроллера
     internal class StatisticsRepo : IGames
     {
         private readonly AppDbContext appDbContext;

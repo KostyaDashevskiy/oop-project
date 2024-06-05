@@ -12,6 +12,7 @@ using Application.DTOs.Rating;
 
 namespace Infrastructure.Repo
 {
+    //класс для обработки запроса по РЕЙТИНГУ из контроллера
     internal class RatingRepo : IRating
     {
         private readonly AppDbContext appDbContext;
@@ -60,7 +61,7 @@ namespace Infrastructure.Repo
                     break;
             }
 
-            appDbContext.SaveChanges();
+            appDbContext.SaveChangesAsync();
 
             return new RatingResponse(200, getUser.Rating.ToString());
         }
