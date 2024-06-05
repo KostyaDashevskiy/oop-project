@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
-const ChangePassword = ({ cookies }) => {
+const ChangePassword = ({ cookies, setCookiesState }) => {
     const userName = cookies.get('name');
     const [oldPassword, setOldPassword] = useState('');
     const [newPassword, setNewPassword] = useState('');
@@ -23,6 +23,11 @@ const ChangePassword = ({ cookies }) => {
             .then((res) => {
                 setCode(res.data.code);
                 setMessage(res.data.message);
+                if (res.data.code === 200) {
+                    cookies.remove('jwt_token');
+                    cookies.remove('name');
+                    setCookiesState();
+                }
             })
             .catch((err) => console.log(err));
 

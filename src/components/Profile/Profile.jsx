@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './Profile.css';
 import Cookies from 'universal-cookie';
 import Header from '../Header/Header';
@@ -8,6 +8,7 @@ import ChangePassword from './ProfileTabs/ChangePassword';
 import DeleteAccount from './ProfileTabs/DeleteAccount';
 function Profile({ cookies }) {
     const [activeTab, setActiveTab] = useState('basicInfo');
+    const [cookiesState, setCookiesState] = useState(cookies.get('name'));
 
     const handleTabChange = (tab) => {
         setActiveTab(tab);
@@ -15,7 +16,7 @@ function Profile({ cookies }) {
 
     return (
         <>
-            {cookies.get('name') === undefined ? (
+            {cookiesState === undefined ? (
                 <NotAuth />
             ) : (
                 <>
@@ -56,10 +57,16 @@ function Profile({ cookies }) {
                                         <BasicInfo cookies={cookies} />
                                     )}
                                     {activeTab === 'changePassword' && (
-                                        <ChangePassword cookies={cookies} />
+                                        <ChangePassword
+                                            cookies={cookies}
+                                            setCookiesState={setCookiesState}
+                                        />
                                     )}
                                     {activeTab === 'deleteAccount' && (
-                                        <DeleteAccount cookies={cookies} />
+                                        <DeleteAccount
+                                            cookies={cookies}
+                                            setCookiesState={setCookiesState}
+                                        />
                                     )}
                                 </div>
                             </div>
