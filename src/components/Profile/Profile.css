@@ -22,27 +22,60 @@
 }
 
 .Profile__sidebar .sidebar__button {
-    width: 100%;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: var(--unactive-button-color);
+    display: inline-block;
+    padding: 12px 24px;
+    margin-bottom: 15px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: bold;
     color: var(--text-color-white);
-    cursor: pointer;
-    margin-bottom: 15px; /* add 15px margin between buttons */
+    text-decoration: none;
+    background-color: var(--unactive-button-color); /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 10px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif;
 }
 
-.Profile__sidebar .sidebar__button:last-child {
-    margin-bottom: 0; /* remove margin for the last button */
+.Profile__sidebar .sidebar__button:hover {
+    background-color: var(--unactive-button-hover-color); /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.Profile__sidebar .sidebar__button:active {
+    box-shadow: 0 2px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
 }
 
 .Profile__sidebar .sidebar__button--delite-account {
     margin-top: auto; /* pin the "delite account" button to the bottom */
+    margin-bottom: 0;
     background-color: var(--delete-account-color);
+}
+
+.Profile__sidebar .sidebar__button--delite-account:hover {
+    background-color: var(--delete-account-hover-color);
 }
 
 .Profile__sidebar .sidebar__button.active {
     background-color: var(--active-button-color); /* highlight active button */
+    box-shadow: 0 2px #556b2f;
+    transform: translateY(4px);
+}
+
+.Profile__sidebar .sidebar__button--delite-account.active {
+    background-color: var(--delete-account-color); /* highlight active button */
+    box-shadow: 0 2px #556b2f;
+    transform: translateY(4px);
+}
+
+.Profile__sidebar .sidebar__button.active:hover {
+    background-color: var(--active-button-hover-color);
+}
+
+.Profile__sidebar .sidebar__button--delite-account.active:hover {
+    background-color: var(--delete-account-hover-color);
 }
 
 /*profile content*/
@@ -148,13 +181,31 @@
 }
 
 .ChangePassword__button {
-    text-align: center;
-    color: var(--text-color-white);
-    background-color: var(--active-button-color);
-    padding: 10px 40px;
-    border-radius: 20px;
-    font-size: 40px;
+    display: inline-block;
+    padding: 12px 40px;
     min-width: 200px;
+    font-size: 30px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    color: var(--text-color-white);
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--active-button-color); /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif;
+}
+
+.ChangePassword__button:not(:disabled):hover {
+    background-color: var(--active-button-hover-color); /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.ChangePassword__button:not(:disabled):active {
+    box-shadow: 0 3px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
 }
 
 .ChangePassword__button:disabled {
@@ -197,13 +248,30 @@
 }
 
 .DeleteAccount__button {
+    display: inline-block;
     text-align: center;
-    color: var(--text-color-white);
-    background-color: var(--delete-account-color);
-    padding: 10px 40px;
-    border-radius: 20px;
-    font-size: 40px;
+    padding: 12px 40px;
+    font-size: 30px;
+    letter-spacing: 4px;
     min-width: 200px;
+    font-weight: 400;
+    color: var(--text-color-white);
+    background-color: var(--delete-account-color); /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif;
+}
+
+.DeleteAccount__button:not(:disabled):hover {
+    background-color: var(--delete-account-hover-color); /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.DeleteAccount__button:not(:disabled):active {
+    box-shadow: 0 3px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
 }
 
 .DeleteAccount__button:disabled {

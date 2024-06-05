@@ -1,0 +1,102 @@
+#notnuth {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    background-color: var(--backgroung-color-white);
+}
+
+#notnuth .notnuth {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+}
+
+.notnuth {
+    max-width: 520px;
+    width: 100%;
+    text-align: center;
+    line-height: 1.4;
+}
+
+.notnuth .notnuth__content {
+    height: 190px;
+}
+
+.notnuth .notnuth__content h1 {
+    font-size: 146px;
+    font-weight: 700;
+    margin: 0px;
+    color: #232323;
+}
+
+.notnuth .notnuth__content h1 > span {
+    display: inline-block;
+    position: relative;
+    width: 120px;
+    height: 120px;
+    background-image: url('../Assets/emoji.png');
+    background-size: cover;
+    -webkit-transform: scale(1.4);
+    -ms-transform: scale(1.4);
+    transform: scale(1.4);
+    z-index: -1;
+}
+
+.notnuth h2 {
+    font-size: 22px;
+    font-weight: 700;
+    margin: 0;
+    text-transform: uppercase;
+    color: #232323;
+}
+
+.notnuth p {
+    color: #787878;
+    font-weight: 300;
+    margin-bottom: 30px;
+}
+
+.notnuth a {
+    display: inline-block;
+    padding: 12px 24px;
+    font-size: 24px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: var(--text-color-white);
+    text-decoration: none;
+    background-color: #6b8e23; /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif; /* Шрифт, похожий на стиле игры */
+}
+
+.notnuth a:hover {
+    background-color: #7fbf2f; /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.notnuth a:active {
+    box-shadow: 0 3px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
+}
+
+@media only screen and (max-width: 767px) {
+    .notnuth .notnuth__content {
+        height: 115px;
+    }
+    .notnuth .notnuth__content h1 {
+        font-size: 86px;
+    }
+    .notnuth .notnuth__content h1 > span {
+        width: 86px;
+        height: 86px;
+    }
+}

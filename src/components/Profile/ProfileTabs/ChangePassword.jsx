@@ -21,12 +21,9 @@ const ChangePassword = ({ cookies }) => {
                 newPassword,
             })
             .then((res) => {
-                setCode(res.data.flag);
+                console.log(res);
+                setCode(res.data.code);
                 setMessage(res.data.message);
-                if (code === 200) {
-                    cookies.remove('name');
-                    cookies.remove('jwt_token');
-                }
             })
             .catch((err) => console.log(err));
 
@@ -85,6 +82,13 @@ const ChangePassword = ({ cookies }) => {
                     required
                 />
             </div>
+            {oldPassword === newPassword &&
+                newPassword === confirmNewPassword &&
+                oldPassword !== '' &&
+                newPassword !== '' &&
+                confirmNewPassword !== '' && (
+                    <p>The new password cannot be the same as the old one</p>
+                )}
             {code && <p>{message}</p>}
             <button
                 className='ChangePassword__button'
@@ -93,7 +97,8 @@ const ChangePassword = ({ cookies }) => {
                     oldPassword === '' ||
                     newPassword === '' ||
                     confirmNewPassword === '' ||
-                    newPassword !== confirmNewPassword
+                    newPassword !== confirmNewPassword ||
+                    (oldPassword === newPassword && newPassword === confirmNewPassword)
                         ? true
                         : ''
                 }

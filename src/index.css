@@ -15,7 +15,17 @@
     font-weight: normal;
     font-style: normal;
 }
+
+@font-face {
+    font-family: 'Grobold';
+    src: url('./fonts/grobold-webfont.woff') format('woff'),
+        url('./fonts/grobold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /*Обнуление*/
+
 * {
     padding: 0;
     margin: 0;
@@ -121,6 +131,9 @@ h6 {
     --sidebar-background-color: #8988b6;
     --info-background-color: #636284;
     --unactive-button-color: #ff9a09;
+    --unactive-button-hover-color: #af6a09;
     --active-button-color: #73c602;
+    --active-button-hover-color: #4b8001;
     --delete-account-color: #ff4242;
+    --delete-account-hover-color: #882323;
 }
