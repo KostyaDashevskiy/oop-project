@@ -25,6 +25,9 @@ namespace Infrastructure.DependencyInjection
                 b => b.MigrationsAssembly(typeof(ServiceContainer).Assembly.FullName)),
                 ServiceLifetime.Scoped);
 
+            /*services.AddDbContext<AppDbContext>(options =>
+                    options.UseNpgsql(configuration.GetConnectionString("Default")));*/
+
             services.AddAuthentication(options =>
             {
                 options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;

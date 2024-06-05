@@ -56,7 +56,7 @@ namespace Infrastructure.Repo
         //обработка запроса на регистрацию
         public async Task<LoginResponse> LoginUserAsync(LoginDTO loginDTO)
         {
-            var getUser = await FindUserByName(loginDTO.Name!);
+            var getUser = await FindUserByName(loginDTO.UserName!);
             if (getUser == null)
             {
                 return new LoginResponse(401, "Invalid credentails: incorrect login or password");
@@ -96,7 +96,7 @@ namespace Infrastructure.Repo
         //обработка запроса на регистрацию
         public async Task<RegistrationResponse> RegisterUserAsync(RegisterUserDTO registerUserDTO)
         {
-            var getUserName = await FindUserByName(registerUserDTO.Name!);
+            var getUserName = await FindUserByName(registerUserDTO.UserName!);
             if(getUserName != null) 
             {
                 return new RegistrationResponse(401, "Invalid credentails: this Username is already taken");
@@ -110,7 +110,7 @@ namespace Infrastructure.Repo
 
             var newUser = new ApplicationUser()
             {
-                Name = registerUserDTO.Name,
+                Name = registerUserDTO.UserName,
                 Email = registerUserDTO.Email,
                 Password = BCrypt.Net.BCrypt.HashPassword(registerUserDTO.Password)
             };
@@ -139,8 +139,8 @@ namespace Infrastructure.Repo
                 Id = newUser.Id,
                 Name = newUser.Name,
                 Email = newUser.Email,
-                Rating = "",
-                Wins = ""
+                Rating = "-",
+                Wins = "-"
             }); ;
 
             await appDbContext.SaveChangesAsync();
@@ -151,7 +151,7 @@ namespace Infrastructure.Repo
         //обработка запроса на удаление пользователя
         public async Task<DeleteUserResponse> DeleteUserAsync(DeleteUserDTO deleteUserDTO)
         {
-            var getUser = await FindUserByName(deleteUserDTO.Name!);
+            var getUser = await FindUserByName(deleteUserDTO.UserName!);
             if (getUser == null)
             {
                 return new DeleteUserResponse(401, "User not found");
@@ -167,9 +167,9 @@ namespace Infrastructure.Repo
             appDbContext.Users.Remove(getUser);
 
             //так же пользователь удаляется из других баз
-            appDbContext.Rating.Remove(await FindRatingUserByName(deleteUserDTO.Name));
-            appDbContext.Statistics.Remove(await FindStatisticsUserByName(deleteUserDTO.Name));
-            appDbContext.Profiles.Remove(await FindProfileUserByName(deleteUserDTO.Name));
+            appDbContext.Rating.Remove(await FindRatingUserByName(deleteUserDTO.UserName));
+            appDbContext.Statistics.Remove(await FindStatisticsUserByName(deleteUserDTO.UserName));
+            appDbContext.Profiles.Remove(await FindProfileUserByName(deleteUserDTO.UserName));
 
             await appDbContext.SaveChangesAsync();
 
