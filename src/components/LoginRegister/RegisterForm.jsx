@@ -3,7 +3,7 @@ import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa6';
 import { CreateApiEndpoint, END_POINTS } from '../../api';
 
 function RegisterForm({ loginLink }) {
-    const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
@@ -15,7 +15,7 @@ function RegisterForm({ loginLink }) {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.REGISTER)
-            .registration({ name, email, password, confirmPassword })
+            .registration({ userName, email, password, confirmPassword })
             .then((res) => {
                 setMessage(res.data.message);
                 setCode(res.data.code);
@@ -43,8 +43,8 @@ function RegisterForm({ loginLink }) {
                         required
                         pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$'
                         minLength='8'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
                     />
                     <FaUser className='icon' />
                 </div>
@@ -103,7 +103,7 @@ function RegisterForm({ loginLink }) {
                     className='RegisterForm__submit-btn'
                     type='submit'
                     disabled={
-                        name === '' ||
+                        userName === '' ||
                         email === '' ||
                         password === '' ||
                         confirmPassword === '' ||
@@ -142,7 +142,7 @@ function RegisterForm({ loginLink }) {
                 style={{ display: code === 200 ? 'flex' : 'none' }}
                 onClick={function () {
                     loginLink();
-                    setName('');
+                    setUserName('');
                     setEmail('');
                     setCode();
                 }}

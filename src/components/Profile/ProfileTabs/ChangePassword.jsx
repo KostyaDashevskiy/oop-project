@@ -21,7 +21,6 @@ const ChangePassword = ({ cookies }) => {
                 newPassword,
             })
             .then((res) => {
-                console.log(res);
                 setCode(res.data.code);
                 setMessage(res.data.message);
             })

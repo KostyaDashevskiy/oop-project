@@ -13,7 +13,6 @@ function BasicInfo({ cookies, style }) {
         CreateApiEndpoint(END_POINTS.GETPROFILE)
             .getProfile({ userName })
             .then((res) => {
-                console.log(res);
                 setEmail(res.data.email);
                 setRating(res.data.rating);
                 setWins(res.data.wins);

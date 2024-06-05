@@ -5,7 +5,7 @@ import Cookies from 'universal-cookie';
 import { FaUser, FaLock } from 'react-icons/fa6';
 
 function LoginForm({ registerLink, cookies }) {
-    const [name, setName] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
     const [code, setCode] = useState();
@@ -19,7 +19,7 @@ function LoginForm({ registerLink, cookies }) {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.LOGIN)
-            .login({ name, password })
+            .login({ userName, password })
             .then((res) => {
                 //создание локальных переменных
                 setCode(res.data.code);
@@ -27,10 +27,10 @@ function LoginForm({ registerLink, cookies }) {
 
                 //создание кукисов
                 cookies.set('jwt_token', res.data.token);
-                cookies.set('name', name);
+                cookies.set('name', userName);
 
                 //подтираем следы вмешательства
-                setName('');
+                setUserName('');
                 setPassword('');
             })
             .catch((err) => console.log(err));
@@ -51,8 +51,8 @@ function LoginForm({ registerLink, cookies }) {
                         minLength='8'
                         required
                         pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$'
-                        value={name}
-                        onChange={(e) => setName(e.target.value)}
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
                     />
                     <FaUser className='icon' />
                 </div>
@@ -87,7 +87,7 @@ function LoginForm({ registerLink, cookies }) {
                 <button
                     className='LoginForm__submit-btn'
                     type='submit'
-                    disabled={name === '' || password === '' ? true : ''}
+                    disabled={userName === '' || password === '' ? true : ''}
                 >
                     Login
                 </button>

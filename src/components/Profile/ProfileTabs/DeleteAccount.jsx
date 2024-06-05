@@ -4,7 +4,7 @@ import { CreateApiEndpoint, END_POINTS } from '../../../api';
 import Cookies from 'universal-cookie';
 
 const DeleteAccount = ({ cookies }) => {
-    const name = cookies.get('name');
+    const userName = cookies.get('name');
     const [password, setPassword] = useState('');
 
     const [code, setCode] = useState();
@@ -20,13 +20,9 @@ const DeleteAccount = ({ cookies }) => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(name);
-        console.log(password);
-
         CreateApiEndpoint(END_POINTS.DELETEACCOUNT)
-            .deleteAccount({ name, password })
+            .deleteAccount({ userName, password })
             .then((res) => {
-                console.log(res);
                 setCode(res.data.code);
                 setMessage(res.data.message);
                 if (res.data.code === 200) {
