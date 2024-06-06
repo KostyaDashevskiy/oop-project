@@ -6,9 +6,9 @@
 
 #home {
     background-image: url(../Assets/gwent.jpg);
-    background-position: center;
+    background-position: 0 -24px;
     background-size: cover;
-    height: calc(100vh - 80px);
+    height: calc(100vh - 110px);
 }
 
 #home .home__container {

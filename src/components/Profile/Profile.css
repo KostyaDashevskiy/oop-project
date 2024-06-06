@@ -15,7 +15,7 @@
     width: 220px;
     background-color: var(--sidebar-background-color);
     padding: 20px;
-    height: calc(100vh - 80px); /* make sidebar full height */
+    height: calc(100vh - 110px); /* make sidebar full height */
     display: flex;
     flex-direction: column;
     justify-content: space-between; /* add space between buttons */
@@ -82,7 +82,7 @@
 .Profile__content--wrapper {
     position: relative;
     width: calc(100% - 220px);
-    background-image: url(../Assets/gwent.jpg);
+    background-image: url(../Assets/Profile-background.png);
     background-size: cover;
     background-position: center;
 }

@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import { FaUser } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
 import './Header.css';
+import Logo from '../Assets/Logo.png';
 
 function Header({ cookies }) {
     const [isOpen, setOpen] = useState(false);
@@ -20,8 +21,7 @@ function Header({ cookies }) {
             <div className='header_container'>
                 <div className='header_logo'>
                     <Link to='/home' className='header_link'>
-                        PLANTS VS ZOMBIES:
-                        <br /> GWENT EDITION
+                        <img src={Logo} alt='Gwent PvZ edition' />
                     </Link>
                 </div>
 
