@@ -11,6 +11,8 @@ export const END_POINTS = {
 
     //Profule
     GETPROFILE: 'Profile/getProfile',
+    SETCOUNTRY: 'Country/setCountry',
+    SETTWITCH: 'Twitch/setTwitch',
 };
 
 export const CreateApiEndpoint = (endpoint) => {
@@ -19,8 +21,10 @@ export const CreateApiEndpoint = (endpoint) => {
     return {
         login: (data) => axios.post(url, data),
         registration: (data) => axios.post(url, data),
-        getProfile: (data) => axios.post(url, data),
         changePassword: (data) => axios.post(url, data),
-        deleteAccount: (data) => axios.delete(url, (data = { data })),
+        deleteAccount: (data) => axios.delete(url, data),
+        getProfile: (data) => axios.post(url, data),
+        setCountry: (data) => axios.post(url, data),
+        setTwitch: (data) => axios.post(url, data),
     };
 };

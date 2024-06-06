@@ -4,6 +4,7 @@ import Cookies from 'universal-cookie';
 import Header from '../Header/Header';
 import NotAuth from '../NotAuth/NotAuth';
 import BasicInfo from './ProfileTabs/BasicInfo';
+import AdditionalInfo from './ProfileTabs/AdditionalInfo';
 import ChangePassword from './ProfileTabs/ChangePassword';
 import DeleteAccount from './ProfileTabs/DeleteAccount';
 function Profile({ cookies }) {
@@ -34,6 +35,14 @@ function Profile({ cookies }) {
                                 </button>
                                 <button
                                     className={`sidebar__button ${
+                                        activeTab === 'aditionalInfo' ? 'active' : ''
+                                    }`}
+                                    onClick={() => handleTabChange('aditionalInfo')}
+                                >
+                                    Aditional Info
+                                </button>
+                                <button
+                                    className={`sidebar__button ${
                                         activeTab === 'changePassword' ? 'active' : ''
                                     }`}
                                     onClick={() => handleTabChange('changePassword')}
@@ -55,6 +64,9 @@ function Profile({ cookies }) {
                                         <BasicInfo style={{ display: 'none' }} cookies={cookies} />
                                     ) : (
                                         <BasicInfo cookies={cookies} />
+                                    )}
+                                    {activeTab === 'aditionalInfo' && (
+                                        <AdditionalInfo cookies={cookies} />
                                     )}
                                     {activeTab === 'changePassword' && (
                                         <ChangePassword

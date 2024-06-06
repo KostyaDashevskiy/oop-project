@@ -213,6 +213,78 @@
     cursor: not-allowed;
 }
 
+/*Profile__AdditionalInfo*/
+
+.Profile__AdditionalInfo {
+    display: flex;
+    flex-direction: column;
+    row-gap: 30px;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.AdditionalInfo__Country,
+.AdditionalInfo__Twitch {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+}
+
+.AdditionalInfo--label {
+    font-size: 30px;
+}
+
+.AdditionalInfo--data {
+    text-align: center;
+    color: var(--text-color-white);
+    background-color: var(--info-background-color);
+    padding: 10px 40px;
+    border-radius: 20px;
+    font-size: 30px;
+    min-width: 350px;
+}
+
+.AdditionalInfo--data::placeholder {
+    color: var(--text-color-white);
+}
+
+.AdditionalInfo--data > * {
+    text-align: left;
+}
+
+.AdditionalInfo__button {
+    display: inline-block;
+    padding: 12px 40px;
+    min-width: 200px;
+    font-size: 30px;
+    letter-spacing: 4px;
+    font-weight: 400;
+    color: var(--text-color-white);
+    text-decoration: none;
+    text-align: center;
+    background-color: var(--active-button-color); /* Цвет в стиле растений */
+    border-radius: 10px;
+    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
+    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
+    transition: all 0.2s ease;
+    font-family: 'Grobold', sans-serif;
+}
+
+.AdditionalInfo__button:not(:disabled):hover {
+    background-color: var(--active-button-hover-color); /* Цвет при наведении */
+    box-shadow: 0 6px #556b2f;
+}
+
+.AdditionalInfo__button:not(:disabled):active {
+    box-shadow: 0 3px #556b2f;
+    transform: translateY(4px); /* Эффект нажатия */
+}
+
+.AdditionalInfo__button:disabled {
+    background-color: grey;
+    cursor: not-allowed;
+}
+
 /*Profile__DeleteAccount*/
 
 .Profile__DeleteAccount {

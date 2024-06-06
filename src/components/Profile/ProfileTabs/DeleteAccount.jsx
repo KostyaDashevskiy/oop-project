@@ -8,8 +8,6 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
     const [password, setPassword] = useState('');
 
     const [code, setCode] = useState();
-    const [message, setMessage] = useState('');
-    const [logout, setLogout] = useState(false);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -18,7 +16,6 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
             .deleteAccount({ userName, password })
             .then((res) => {
                 setCode(res.data.code);
-                setMessage(res.data.message);
                 if (res.data.code === 200) {
                     cookies.remove('jwt_token');
                     cookies.remove('name');
@@ -45,7 +42,7 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
                     required
                 />
             </div>
-            {code && <p>{message}</p>}
+
             <button
                 className='DeleteAccount__button'
                 type='submit'
