@@ -14,6 +14,7 @@
 .Profile__sidebar {
     width: 220px;
     background-color: var(--sidebar-background-color);
+    background-repeat: no-repeat;
     padding: 20px;
     height: calc(100vh - 110px); /* make sidebar full height */
     display: flex;

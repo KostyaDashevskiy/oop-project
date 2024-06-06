@@ -1,12 +1,7 @@
-/* @font-face {
-    font-family: 'Grobold';
-    src: url('path_to_grobold_font/Grobold.ttf') format('truetype'); 
-} 
-*/
-
 #home {
     background-image: url(../Assets/gwent.jpg);
     background-position: 0 -24px;
+    background-repeat: no-repeat;
     background-size: cover;
     height: calc(100vh - 110px);
 }
