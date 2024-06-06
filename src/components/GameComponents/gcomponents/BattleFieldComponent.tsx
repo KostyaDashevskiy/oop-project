@@ -9,34 +9,34 @@ interface IBattleFieldComponentProps {
 
 const BattleFieldComponent: React.FC<IBattleFieldComponentProps> = observer(({ cards }) => {
     return (
-        <div>
-            <div className='battleField'>
-                {cards.hisSniper.map((card) => (
+        <div className='battleField'>
+            <div className='iner_battleField'>
+                {cards.his[2].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>
-            <div className='battleField'>
-                {cards.hisDamage.map((card) => (
+            <div className='iner_battleField'>
+                {cards.his[1].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>
-            <div className='battleField'>
-                {cards.hisShield.map((card) => (
+            <div className='iner_battleField'>
+                {cards.his[0].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>
-            <div className='battleField'>
-                {cards.myShield.map((card) => (
+            <div className='iner_battleField'>
+                {cards.my[0].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>
-            <div className='battleField'>
-                {cards.myDamage.map((card) => (
+            <div className='iner_battleField'>
+                {cards.my[1].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>
-            <div className='battleField'>
-                {cards.mySniper.map((card) => (
+            <div className='iner_battleField'>
+                {cards.my[2].map((card) => (
                     <CardComponent card={card} key={card.id} />
                 ))}
             </div>

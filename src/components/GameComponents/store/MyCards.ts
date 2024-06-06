@@ -13,35 +13,18 @@ class MyCards extends PlayerCards {
             cards: observable,
         });
     }
-    /*
-    checkMyStep(card: Card, battleFieldCards: Card[]) {
-        if (game.isMyAttack) {
-            return this.myAttack(card, battleFieldCards);
-        }
 
-        return this.myDefense(card, game.attackCard);
+    checkMyStep(card: Card) {
+        if (game.isMyStep) {
+            return this.myAttack(card);
+        }
     }
 
-    myAttack(card: Card, battleFieldCards: Card[]) {
-        if (!battleFieldCards.length || battleFieldCards.some((c) => c.points === card.points)) {
-            game.setAttackCard(card);
-            this.reduceCard(card.id);
-            return card;
-        }
-        alert('Такой карты нет на поле битвы');
+    myAttack(card: Card) {
+        game.setAttackCardPlants(card);
+        this.reduceCard(card.id);
+        return card;
     }
-
-    myDefense(card: Card, attackCard: Card) {
-        const strongerCard = card.points > attackCard.points;
-
-        if (strongerCard) {
-            this.reduceCard(card.id);
-            return card;
-        }
-
-        alert('У него карта сильнее');
-    }
-    */
 }
 
 export default new MyCards();

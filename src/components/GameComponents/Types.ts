@@ -17,10 +17,6 @@ export interface CoupleCard {
 }
 */
 export interface fieldsCard {
-    myShield: Array<Card>; // Card[]; ????
-    myDamage: Array<Card>;
-    mySniper: Array<Card>;
-    hisShield: Array<Card>;
-    hisDamage: Array<Card>;
-    hisSniper: Array<Card>;
+    my: Array<Array<Card>>;
+    his: Array<Array<Card>>;
 }

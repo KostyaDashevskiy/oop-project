@@ -1,4 +1,4 @@
-/*import * as React from 'react';
+import * as React from 'react';
 
 interface IGameOverProps {
     isShow: boolean;
@@ -12,7 +12,7 @@ const GameOver: React.FC<IGameOverProps> = ({ isShow, isMyWin, onRestartGame }) 
             <b className={isMyWin ? 'win' : 'lose'}>
                 {isMyWin ? 'Поздравляю! Ты выиграл!' : 'Увы! Ты проиграл!'}
             </b>
-            <button className='game-over-btn' onClick={onRestartGame}>
+            <button className='game-over-btn' type='submit' onClick={onRestartGame}>
                 Играть еще раз?
             </button>
         </div>
@@ -20,6 +20,3 @@ const GameOver: React.FC<IGameOverProps> = ({ isShow, isMyWin, onRestartGame }) 
 };
 
 export default GameOver;
-*/
-
-export {};

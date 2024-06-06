@@ -1,5 +1,5 @@
 import { action, makeObservable, observable } from 'mobx';
-import { Card } from '../Types';
+import { Card, TypeCard } from '../Types';
 import { game } from '.';
 import PlayerCards from './PlayerCards';
 
@@ -11,80 +11,29 @@ class HisCards extends PlayerCards {
 
         makeObservable(this, {
             cards: observable,
-            //defineCardForAttack: action,
+            defineCardForAttack: action,
         });
     }
-    /*
+
     defineCardForAction = (battleFieldCards: Card[]) => {
-        if (game.isMyAttack) {
-            return this.defineCardForDefense(game.attackCard, battleFieldCards);
-        }
-        return this.defineCardForAttack(battleFieldCards);
+        if (!game.isMyStep) return this.defineCardForAttack(battleFieldCards);
     };
 
     defineCardForAttack = (battleFieldCards: Card[]) => {
         if (this.cards.length) {
-            let cardForAttack = null;
-            if (!battleFieldCards.length) {
-                const trumpCards = this.cards.filter((card) => card.type === game.trumpCard);
-                const notTrumpCards = this.cards.filter((card) => card.type !== game.trumpCard);
+            let cardForAttack = this.cards[0];
 
-                if (notTrumpCards.length) {
-                    cardForAttack = this.defineJuniorCard(notTrumpCards);
-                } else {
-                    cardForAttack = this.defineJuniorCard(trumpCards);
-                }
-                game.setAttackCard(cardForAttack);
-                return cardForAttack;
-            }
+            const myCards = this.cards;
 
-            cardForAttack = this.defineJuniorExistCard(battleFieldCards);
-            if (cardForAttack) {
-                game.setAttackCard(cardForAttack);
-            }
+            myCards.forEach((element) => {
+                if (element.points > cardForAttack.points) cardForAttack = element;
+            });
+
+            game.setAttackCardZombie(cardForAttack);
+            this.reduceCard(cardForAttack.id);
             return cardForAttack;
         }
     };
-
-    defineCardForDefense(attackCard: Card | null, battleFieldCards: Card[]) {
-        if (attackCard) {
-            const higherCards = this.cards.filter(
-                (card) => card.type === attackCard?.type && card.rank > attackCard?.rank,
-            );
-
-            const trumpCards = this.cards.filter((card) => card.type === game.trumpCard);
-
-            if (higherCards.length) {
-                return this.defineJuniorCard(higherCards);
-            }
-
-            if (attackCard.type !== game.trumpCard && trumpCards.length) {
-                return this.defineJuniorCard(trumpCards);
-            }
-
-            this.addCards(battleFieldCards);
-            game.toggleStep();
-            game.setIsGetCard(true);
-        }
-    }
-
-    defineJuniorExistCard(battleFieldCards: Card[]) {
-        const existRankCards = this.cards.filter(
-            (card) => !!battleFieldCards.find((c) => c.rank === card.rank),
-        );
-        return existRankCards.length ? this.defineJuniorCard(existRankCards) : null;
-    }
-
-    defineJuniorCard(cards: Card[]): Card {
-        const juniorCard = cards.reduce((acc, curCurd) =>
-            acc?.rank < curCurd?.rank ? acc : curCurd,
-        );
-        if (juniorCard) {
-            this.reduceCard(juniorCard.id);
-        }
-        return juniorCard;
-    }
-    */
 }
 
 export default new HisCards();

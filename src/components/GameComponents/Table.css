@@ -1,6 +1,5 @@
 .Main {
-    /*background-image: url('../Assets/table2.png'); */
-    background-color: aqua;
+    background-image: url('../Assets/table2.png');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center center;
@@ -18,6 +17,13 @@
 
 .battleField {
     display: flex;
+    flex-direction: column;
+}
+
+.iner_battleField {
+    display: flex;
+    background-color: red;
+    min-height: 80px;
 }
 
 .red {
