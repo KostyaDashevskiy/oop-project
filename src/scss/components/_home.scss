@@ -1,4 +1,5 @@
 @import '../variables';
+@import '../mixins';
 
 #home {
     background-image: url(../../components/Assets/gwent.jpg);
@@ -16,27 +17,18 @@
 }
 
 .home__container .home__btn {
-    display: inline-block;
-    padding: 50px 100px; /* Увеличение размеров */
-    font-size: 5em; /* Увеличение размера шрифта */
-    font-weight: 400;
+    @include pvz_button;
+    padding: 50px 100px;
+    font-size: 5em;
     letter-spacing: 4px;
-    color: #ffffff;
-    text-decoration: none;
-    background-color: #6b8e23; /* Цвет в стиле растений */
-    border-radius: 30px; /* Более плавное закругление углов */
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 20px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif; /* Шрифт, похожий на стиле игры */
-}
+    border-radius: 30px;
+    box-shadow: 0 20px #556b2f;
 
-#home .home__container .home__btn:hover {
-    background-color: #7fbf2f; /* Цвет при наведении */
-    box-shadow: 0 16px #556b2f;
-}
+    &:hover {
+        box-shadow: 0 16px $button_box_shadow;
+    }
 
-#home .home__container .home__btn:active {
-    box-shadow: 0 5px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
+    &:active {
+        box-shadow: 0 5px $button_box_shadow;
+    }
 }

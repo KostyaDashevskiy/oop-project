@@ -28,7 +28,7 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
     };
 
     return (
-        <form className='Profile__DeleteAccount DeleteAccount' onSubmit={handleSubmit}>
+        <form className='profile__DeleteAccount DeleteAccount' onSubmit={handleSubmit}>
             <div className='DeleteAccount__Password'>
                 <div className='DeleteAccount__Password--label DeleteAccount--label'>Password:</div>
                 <input

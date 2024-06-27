@@ -1,313 +1,117 @@
 @import '../variables';
+@import '../mixins';
 
-.Profile {
+#profile {
     background-color: $sidebar_background_color;
 }
 
-.Profile__container {
+.profile__container {
     display: flex;
     max-width: 1780px;
     margin: 0 auto;
-    padding: 0 30px;
 }
 
 /*profile sidebar*/
 
-.Profile__sidebar {
+.profile__sidebar {
     width: 220px;
     background-color: $sidebar_background_color;
-    background-repeat: no-repeat;
     padding: 20px;
-    height: calc(100vh - 110px); /* make sidebar full height */
+    height: calc(100vh - 110px);
     display: flex;
     flex-direction: column;
-    justify-content: space-between; /* add space between buttons */
+    row-gap: 15px;
 }
 
-.Profile__sidebar .sidebar__button {
-    display: inline-block;
-    padding: 12px 24px;
-    margin-bottom: 15px;
+.profile__sidebar .sidebar__button {
+    @include profile_sidebar_btn;
     font-size: 18px;
-    letter-spacing: 1px;
-    font-weight: bold;
-    color: $text_color_white;
-    text-decoration: none;
-    background-color: $unactive_button_color; /* Цвет в стиле растений */
-    border-radius: 10px;
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 10px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif;
+    font-weight: 700;
 }
 
-.Profile__sidebar .sidebar__button:hover {
-    background-color: $unactive_button_hover_color; /* Цвет при наведении */
-    box-shadow: 0 6px #556b2f;
-}
-
-.Profile__sidebar .sidebar__button:active {
-    box-shadow: 0 2px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
-}
-
-.Profile__sidebar .sidebar__button--delite-account {
-    margin-top: auto; /* pin the "delite account" button to the bottom */
-    margin-bottom: 0;
+.profile__sidebar .sidebar__button--delite-account {
+    margin-top: auto;
     background-color: $delete_account_color;
-}
 
-.Profile__sidebar .sidebar__button--delite-account:hover {
-    background-color: $delete_account_hover_color;
-}
+    &:hover {
+        background-color: $delete_account_hover_color;
+    }
 
-.Profile__sidebar .sidebar__button.active {
-    background-color: $active_button_color; /* highlight active button */
-    box-shadow: 0 2px #556b2f;
-    transform: translateY(4px);
-}
+    &.active {
+        background-color: $delete_account_color;
+    }
 
-.Profile__sidebar .sidebar__button--delite-account.active {
-    background-color: $delete_account_color; /* highlight active button */
-    box-shadow: 0 2px #556b2f;
-    transform: translateY(4px);
-}
+    &.active:hover {
+        background-color: $delete_account_hover_color;
+    }
 
-.Profile__sidebar .sidebar__button.active:hover {
-    background-color: $active_button_hover_color;
-}
-
-.Profile__sidebar .sidebar__button--delite-account.active:hover {
-    background-color: $delete_account_hover_color;
+    &.active:active {
+        background-color: $delete_account_hover_color;
+    }
 }
 
 /*profile content*/
-.Profile__content--wrapper {
+.profile__content--wrapper {
     position: relative;
     width: calc(100% - 220px);
-    background-image: url(../../components/Assets/Profile-background.png);
-    background-size: cover;
-    background-position: center;
+    background: url(../../components/Assets/Profile-background.png) center/cover no-repeat;
 }
 
-.Profile__content--wrapper::after {
+.profile__content--wrapper::after {
     position: absolute;
     content: '';
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    background: linear-gradient(90deg, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
-    z-index: 0;
+    background: linear-gradient(90deg, rgb(255, 255, 255) 50%, rgba(255, 255, 255, 0) 100%);
 }
 
-.Profile__content {
+.profile__content {
     position: relative;
     padding: 30px 40px;
     height: 100%;
     z-index: 1;
 }
 
-/*Profile__BasicInfo */
+/*profile tabs */
 
-.Profile__BasicInfo {
+.profile__BasicInfo,
+.profile__ChangePassword,
+.profile__AdditionalInfo,
+.profile__DeleteAccount {
     display: flex;
     flex-direction: column;
     row-gap: 30px;
     justify-content: center;
     align-items: flex-start;
-}
-
-.BasicInfo__UserInfo {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
 }
 
 .BasicInfo__UserName,
 .BasicInfo__UserEmail,
 .BasicInfo__UserRating,
-.BasicInfo__UserWins {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-.BasicInfo--label {
-    font-size: 30px;
-}
-
-.BasicInfo--data {
-    text-align: center;
-    color: $text_color_white;
-    background-color: $info_background_color;
-    padding: 10px 40px;
-    border-radius: 20px;
-    font-size: 40px;
-    min-width: 350px;
-}
-
-/*Profile__ChangePassword*/
-
-.Profile__ChangePassword {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
+.BasicInfo__UserWins,
 .ChangePassword__OldPassword,
 .ChangePassword__NewPassword,
-.ChangePassword__ConfirmNewPassword {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-.ChangePassword--label {
-    font-size: 30px;
-}
-
-.ChangePassword--data {
-    text-align: center;
-    color: $text_color_white;
-    background-color: $info_background_color;
-    padding: 10px 40px;
-    border-radius: 20px;
-    font-size: 40px;
-    min-width: 350px;
-}
-
-.ChangePassword--data::placeholder {
-    color: $text_color_white;
-}
-
-.ChangePassword__button {
-    display: inline-block;
-    padding: 12px 40px;
-    min-width: 200px;
-    font-size: 30px;
-    letter-spacing: 4px;
-    font-weight: 400;
-    color: $text_color_white;
-    text-decoration: none;
-    text-align: center;
-    background-color: $active_button_color; /* Цвет в стиле растений */
-    border-radius: 10px;
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif;
-}
-
-.ChangePassword__button:not(:disabled):hover {
-    background-color: $active_button_hover_color; /* Цвет при наведении */
-    box-shadow: 0 6px #556b2f;
-}
-
-.ChangePassword__button:not(:disabled):active {
-    box-shadow: 0 3px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
-}
-
-.ChangePassword__button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
-}
-
-/*Profile__AdditionalInfo*/
-
-.Profile__AdditionalInfo {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
+.ChangePassword__ConfirmNewPassword,
 .AdditionalInfo__Country,
-.AdditionalInfo__Twitch {
-    display: flex;
-    flex-direction: column;
-    row-gap: 10px;
-}
-
-.AdditionalInfo--label {
-    font-size: 30px;
-}
-
-.AdditionalInfo--data {
-    text-align: center;
-    color: $text_color_white;
-    background-color: $info_background_color;
-    padding: 10px 40px;
-    border-radius: 20px;
-    font-size: 30px;
-    min-width: 350px;
-}
-
-.AdditionalInfo--data::placeholder {
-    color: $text_color_white;
-}
-
-.AdditionalInfo--data > * {
-    text-align: left;
-}
-
-.AdditionalInfo__button {
-    display: inline-block;
-    padding: 12px 40px;
-    min-width: 200px;
-    font-size: 30px;
-    letter-spacing: 4px;
-    font-weight: 400;
-    color: $text_color_white;
-    text-decoration: none;
-    text-align: center;
-    background-color: $active_button_color; /* Цвет в стиле растений */
-    border-radius: 10px;
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif;
-}
-
-.AdditionalInfo__button:not(:disabled):hover {
-    background-color: $active_button_hover_color; /* Цвет при наведении */
-    box-shadow: 0 6px #556b2f;
-}
-
-.AdditionalInfo__button:not(:disabled):active {
-    box-shadow: 0 3px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
-}
-
-.AdditionalInfo__button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
-}
-
-/*Profile__DeleteAccount*/
-
-.Profile__DeleteAccount {
-    display: flex;
-    flex-direction: column;
-    row-gap: 30px;
-    justify-content: center;
-    align-items: flex-start;
-}
-
+.AdditionalInfo__Twitch,
 .DeleteAccount__Password {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
+.BasicInfo--label,
+.AdditionalInfo--label,
+.ChangePassword--label,
 .DeleteAccount--label {
     font-size: 30px;
 }
 
+.BasicInfo--data,
+.AdditionalInfo--data,
+.ChangePassword--data,
 .DeleteAccount--data {
     text-align: center;
     color: $text_color_white;
@@ -318,38 +122,32 @@
     min-width: 350px;
 }
 
+.AdditionalInfo--data > * {
+    text-align: left;
+}
+
+.AdditionalInfo--data::placeholder,
+.ChangePassword--data::placeholder,
 .DeleteAccount--data::placeholder {
     color: $text_color_white;
 }
 
+.AdditionalInfo__button,
+.ChangePassword__button,
+.DeleteAccount__button,
 .DeleteAccount__button {
-    display: inline-block;
-    text-align: center;
-    padding: 12px 40px;
+    @include profile_tabs_btn;
     font-size: 30px;
-    letter-spacing: 4px;
-    min-width: 200px;
-    font-weight: 400;
-    color: $text_color_white;
-    background-color: $delete_account_color; /* Цвет в стиле растений */
-    border-radius: 10px;
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 8px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif;
 }
 
-.DeleteAccount__button:not(:disabled):hover {
-    background-color: $delete_account_hover_color; /* Цвет при наведении */
-    box-shadow: 0 6px #556b2f;
-}
+.DeleteAccount__button {
+    background-color: $delete_account_color;
 
-.DeleteAccount__button:not(:disabled):active {
-    box-shadow: 0 3px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
-}
+    &:not(:disabled):hover {
+        background-color: $delete_account_hover_color;
+    }
 
-.DeleteAccount__button:disabled {
-    background-color: grey;
-    cursor: not-allowed;
+    &:not(:disabled):active {
+        background-color: $delete_account_hover_color;
+    }
 }

@@ -6,10 +6,10 @@ import HeaderMenu from './HeaderMenu';
 
 function Header({ cookies }) {
     return (
-        <header className='header'>
-            <div className='header_container'>
-                <div className='header_logo'>
-                    <Link to='/home' className='header_link'>
+        <header id='header'>
+            <div className='header__container'>
+                <div className='header__logo'>
+                    <Link to='/home' className='header__link'>
                         <img src={Logo} alt='Gwent PvZ edition' />
                     </Link>
                 </div>

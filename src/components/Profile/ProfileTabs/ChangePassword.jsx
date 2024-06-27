@@ -38,7 +38,7 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
     };
 
     return (
-        <form className='Profile__ChangePassword ChangePassword' onSubmit={handleSubmit}>
+        <form className='profile__ChangePassword ChangePassword' onSubmit={handleSubmit}>
             <div className='ChangePassword__OldPassword'>
                 <div className='ChangePassword__OldPassword--label ChangePassword--label'>
                     Old password:

@@ -3,7 +3,7 @@ import Cookies from 'universal-cookie';
 import { CreateApiEndpoint, END_POINTS } from '../../../api/';
 
 function AdditionalInfo({ cookies }) {
-    const [country, setcountry] = useState();
+    const [country, setcountry] = useState('');
     const [twitchLink, setTwitchLink] = useState();
 
     const [userName] = useState(cookies.get('name'));
@@ -54,7 +54,7 @@ function AdditionalInfo({ cookies }) {
     ];
 
     return (
-        <form className='Profile__AdditionalInfo AdditionalInfo' onSubmit={handleSubmit}>
+        <form className='profile__AdditionalInfo AdditionalInfo' onSubmit={handleSubmit}>
             <div className='AdditionalInfo__Country'>
                 <div className='AdditionalInfo__Country--label AdditionalInfo--label'>Country:</div>
                 <select
@@ -94,7 +94,7 @@ function AdditionalInfo({ cookies }) {
             <button
                 className='AdditionalInfo__button'
                 type='submit'
-                disabled={country === undefined && twitchLink === undefined ? true : ''}
+                disabled={country === '' && twitchLink === undefined ? true : ''}
             >
                 Save
             </button>

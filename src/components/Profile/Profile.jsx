@@ -22,9 +22,9 @@ function Profile({ cookies }) {
             ) : (
                 <>
                     <Header cookies={cookies} />
-                    <section className='Profile'>
-                        <div className='Profile__container'>
-                            <div className='Profile__sidebar sidebar'>
+                    <section id='profile'>
+                        <div className='profile__container'>
+                            <nav className='profile__sidebar sidebar'>
                                 <button
                                     className={`sidebar__button ${
                                         activeTab === 'basicInfo' ? 'active' : ''
@@ -57,9 +57,9 @@ function Profile({ cookies }) {
                                 >
                                     Delete Account
                                 </button>
-                            </div>
-                            <div className='Profile__content--wrapper'>
-                                <div className='Profile__content'>
+                            </nav>
+                            <div className='profile__content--wrapper'>
+                                <div className='profile__content'>
                                     {activeTab !== 'basicInfo' ? (
                                         <BasicInfo style={{ display: 'none' }} cookies={cookies} />
                                     ) : (

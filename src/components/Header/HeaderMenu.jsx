@@ -13,21 +13,21 @@ function HeaderMenu({ cookies }) {
     };
     return (
         <>
-            <nav className='header_menu menu'>
-                <FaUser className='menu_icon' />
-                <button className='menu_button' onClick={() => setOpen(!isOpen)}>
+            <nav className='header__menu menu' onClick={() => setOpen(!isOpen)}>
+                <FaUser className='menu__icon' />
+                <button className='menu__button'>
                     {cookies.get('name') !== undefined ? cookies.get('name') : 'Username'}
                 </button>
-                <div className={`header_dropdown ${isOpen ? 'active' : ''}`}>
-                    <ul className='menu_list'>
-                        <Link to='/profile' className='menu_link'>
-                            <li className='menu_item'>
+                <div className={`menu__dropdown ${isOpen ? 'active' : ''}`}>
+                    <ul className='menu__list'>
+                        <Link to='/profile' className='menu__link'>
+                            <li className='menu__item'>
                                 <FaUser className='icon' />
                                 <span>Profile</span>
                             </li>
                         </Link>
-                        <a className='menu_link' onClick={() => logoutFunc}>
-                            <li className='menu_item'>
+                        <a className='menu__link' onClick={() => logoutFunc}>
+                            <li className='menu__item'>
                                 <BiLogOut className='icon' />
                                 <span>Log out</span>
                             </li>

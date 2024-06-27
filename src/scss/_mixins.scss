@@ -1,0 +1,108 @@
+@mixin response {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    & > * {
+        padding: 20px 10px;
+    }
+
+    &.code--200 {
+        color: #90ee90;
+        border: #006400 double 3px;
+        background-color: #008000;
+    }
+    &.code--401,
+    &.code--402 {
+        text-align: center;
+        color: #ff0000;
+        border: #8b0000 double 3px;
+        background-color: #f08080;
+    }
+}
+
+@mixin pvz_button {
+    display: inline-block;
+    padding: 12px 24px;
+    font-family: 'Grobold', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 1px;
+    color: $text_color_white;
+    text-align: center;
+    background-color: $button_background_color;
+    border: 3px solid $button_border_color;
+    border-radius: 10px;
+    box-shadow: 0 10px $button_box_shadow;
+    transition: all 0.2s ease;
+
+    &:hover {
+        background-color: $button_hover_color;
+        box-shadow: 0 6px $button_box_shadow;
+    }
+
+    &:active {
+        background-color: $button_hover_color;
+        box-shadow: 0 2px $button_box_shadow;
+        transform: translateY(4px);
+    }
+}
+
+@mixin profile_sidebar_btn {
+    @include pvz_button;
+    background-color: $unactive_button_color;
+
+    &:hover {
+        background-color: $unactive_button_hover_color;
+    }
+
+    &:active {
+        background-color: $unactive_button_hover_color;
+    }
+
+    &.active {
+        background-color: $active_button_color;
+        box-shadow: 0 2px $button_box_shadow;
+        transform: translateY(4px);
+    }
+
+    &.active:hover {
+        background-color: $active_button_hover_color;
+    }
+
+    &.active:active {
+        background-color: $active_button_hover_color;
+    }
+}
+
+@mixin profile_tabs_btn {
+    display: inline-block;
+    min-width: 200px;
+    padding: 12px 40px;
+    font-family: 'Grobold', sans-serif;
+    font-size: 1em;
+    font-weight: 400;
+    letter-spacing: 4px;
+    color: $text_color_white;
+    text-align: center;
+    background-color: $button_background_color;
+    border: 3px solid $button_border_color;
+    border-radius: 10px;
+    box-shadow: 0 8px $button_box_shadow;
+    transition: all 0.2s ease;
+
+    &:not(:disabled):hover {
+        background-color: $button_hover_color;
+        box-shadow: 0 6px $button_box_shadow;
+    }
+
+    &:not(:disabled):active {
+        background-color: $button_hover_color;
+        box-shadow: 0 3px $button_box_shadow;
+        transform: translateY(4px);
+    }
+
+    &:disabled {
+        background-color: $text_color_grey;
+        cursor: not-allowed;
+    }
+}

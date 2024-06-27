@@ -20,7 +20,7 @@ function BasicInfo({ cookies, style }) {
             .catch((err) => console.log(err));
     }, []);
     return (
-        <section className='Profile__BasicInfo BasicInfo' style={style}>
+        <section className='profile__BasicInfo BasicInfo' style={style}>
             <div className='BasicInfo__UserName'>
                 <div className='BasicInfo__UserName--label BasicInfo--label'>Username:</div>
                 <div className='BasicInfo__UserName--data BasicInfo--data'>

@@ -1,20 +1,18 @@
 @import '../variables';
+@import '../mixins';
 
 #notfound {
     position: relative;
     height: 100vh;
+    background-color: $background_color_white;
 }
 
 #notfound .notfound {
     position: absolute;
     left: 50%;
     top: 50%;
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
-}
 
-.notfound {
     max-width: 520px;
     width: 100%;
     text-align: center;
@@ -28,8 +26,7 @@
 .notfound .notfound-404 h1 {
     font-size: 146px;
     font-weight: 700;
-    margin: 0px;
-    color: #232323;
+    color: $text_color_black;
 }
 
 .notfound .notfound-404 h1 > span {
@@ -39,8 +36,6 @@
     height: 120px;
     background-image: url('../../components/Assets/emoji.png');
     background-size: cover;
-    -webkit-transform: scale(1.4);
-    -ms-transform: scale(1.4);
     transform: scale(1.4);
     z-index: -1;
 }
@@ -48,40 +43,20 @@
 .notfound h2 {
     font-size: 22px;
     font-weight: 700;
-    margin: 0;
     text-transform: uppercase;
-    color: #232323;
+    color: $text_color_black;
 }
 
 .notfound p {
-    color: #787878;
+    color: $text_color_grey;
     font-weight: 300;
     margin-bottom: 30px;
 }
 
 .notfound a {
-    display: inline-block;
-    padding: 12px 24px;
+    @include pvz_button;
     font-size: 24px;
-    font-weight: 400;
-    color: $text_color_white;
-    text-decoration: none;
-    background-color: #6b8e23; /* Цвет в стиле растений */
-    border-radius: 10px;
-    border: 3px solid #556b2f; /* Темно-зеленая окантовка */
-    box-shadow: 0 10px #556b2f; /* Тень для кнопки */
-    transition: all 0.2s ease;
-    font-family: 'Grobold', sans-serif; /* Шрифт, похожий на стиле игры */
-}
-
-.notfound a:hover {
-    background-color: #7fbf2f; /* Цвет при наведении */
-    box-shadow: 0 6px #556b2f;
-}
-
-.notfound a:active {
-    box-shadow: 0 3px #556b2f;
-    transform: translateY(4px); /* Эффект нажатия */
+    letter-spacing: 2px;
 }
 
 @media only screen and (max-width: 767px) {
@@ -94,5 +69,9 @@
     .notfound .notfound-404 h1 > span {
         width: 86px;
         height: 86px;
+    }
+    .notfound a {
+        font-size: 16px;
+        padding: 10px 16px;
     }
 }

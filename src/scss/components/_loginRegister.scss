@@ -1,14 +1,13 @@
 @import '../variables';
+@import '../mixins';
 
 /*loginRegisterPage*/
-.loginRegisterPage {
+#loginRegisterPage {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    background: url(../../components/Assets/gwent.jpg) no-repeat;
-    background-size: cover;
-    background-position: center;
+    background: url(../../components/Assets/gwent.jpg) center/cover no-repeat;
 }
 
 .loginRegisterPage__wrapper {
@@ -21,38 +20,40 @@
     display: flex;
     align-items: center;
     overflow: hidden;
-    transition: height 0.2s ease;
+    transition: height 1s ease;
     margin-top: 34vh;
+
+    &.active {
+        height: 600px;
+        transition: all 1s ease;
+    }
+}
+
+.loginRegisterPage__form-box {
+    width: 100%;
+    padding: 40px;
+
+    &.form-box--login {
+        transition: all 1s ease;
+        transform: translateY(0px);
+    }
+
+    &.form-box--register {
+        position: absolute;
+        transition: all 1s ease;
+        transform: translateY(600px);
+    }
 }
 
 .loginRegisterPage__wrapper.active {
-    height: 600px;
-}
-
-.loginRegisterPage__wrapper .loginRegisterPage__form-box {
-    width: 100%;
-    padding: 40px;
-}
-
-.loginRegisterPage__wrapper .loginRegisterPage__form-box.form-box--login {
-    transition: transform 0.18s ease;
-    transform: translateY(0px);
-}
-
-.loginRegisterPage__wrapper.active .loginRegisterPage__form-box.form-box--login {
-    transition: transform 0.18s ease;
-    transform: translateY(-600px);
-}
-
-.loginRegisterPage__wrapper .loginRegisterPage__form-box.form-box--register {
-    position: absolute;
-    transition: transform 0.18s ease;
-    transform: translateY(600px);
-}
-
-.loginRegisterPage__wrapper.active .loginRegisterPage__form-box.form-box--register {
-    transition: transform 0.18s ease;
-    transform: translateY(0px);
+    .loginRegisterPage__form-box.form-box--login {
+        transition: transform 1s ease;
+        transform: translateY(-600px);
+    }
+    .loginRegisterPage__form-box.form-box--register {
+        transition: transform 1s ease;
+        transform: translateY(0px);
+    }
 }
 
 /*LoginForm and RegisterForm*/
@@ -71,6 +72,15 @@
     margin: 30px 0;
 }
 
+.LoginForm__input-box .icon,
+.RegisterForm__input-box .icon {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    translate: 0 -50%;
+    font-size: 16px;
+}
+
 .LoginForm__input-box input,
 .RegisterForm__input-box input {
     width: 100%;
@@ -82,20 +92,10 @@
     font-size: 16px;
     color: $text_color_white;
     padding: 20px 45px 20px 20px;
-}
 
-.LoginForm__input-box input::placeholder,
-.RegisterForm__input-box input::placeholder {
-    color: $text_color_white;
-}
-
-.LoginForm__input-box .icon,
-.RegisterForm__input-box .icon {
-    position: absolute;
-    right: 20px;
-    top: 50%;
-    translate: 0 -50%;
-    font-size: 16px;
+    &::placeholder {
+        color: $text_color_white;
+    }
 }
 
 .RegisterForm__check-box,
@@ -115,58 +115,27 @@
 .LoginForm__check-box a {
     color: $text_color_white;
     text-decoration: none;
-}
 
-.LoginForm__check-box a:hover {
-    text-decoration: underline;
+    *:hover {
+        text-decoration: underline;
+    }
 }
 
 .LoginForm__response,
 .RegisterForm__response {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    width: 100%;
-}
-.LoginForm__response > *,
-.RegisterForm__response > * {
-    padding: 10px 10px;
-}
-
-.LoginForm__response.code--200,
-.RegisterForm__response.code--200 {
-    text-align: center;
-    color: lightgreen;
-    border: darkgreen double 3px;
-    background-color: green;
-}
-
-.LoginForm__response.code--401,
-.LoginForm__response.code--402,
-.RegisterForm__response.code--401,
-.RegisterForm__response.code--402 {
-    text-align: center;
-    color: red;
-    border: darkred double 3px;
-    background-color: lightcoral;
+    @include response;
 }
 
 .RegisterForm__response-link {
-    display: flex;
     justify-content: center;
     align-items: center;
     width: fit-content;
     margin: 0 auto;
     margin-top: 20px;
     padding: 15px 50px;
-    background: #fff;
-    border: none;
-    outline: none;
+    background: $background_color_white;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-    font-size: 16px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.5);
     color: $text_color_black;
     font-weight: 700;
 }
@@ -176,38 +145,33 @@
     width: 100%;
     height: 45px;
     margin-top: 15px;
-    background: #fff;
+    background: $background_color_white;
     border: none;
     outline: none;
     border-radius: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
     color: $text_color_black;
     font-weight: 700;
-}
 
-.LoginForm__submit-btn:disabled,
-.RegisterForm__submit-btn:disabled {
-    background-color: grey;
-    cursor: not-allowed;
+    &:disabled {
+        background-color: $text_color_grey;
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+        cursor: not-allowed;
+    }
 }
-
 .LoginForm__link,
 .RegisterForm__link {
     font-size: 14.5px;
     text-align: center;
     margin: 20px 0 15px;
-}
 
-.LoginForm__link p a,
-.RegisterForm__link p a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 600;
-}
+    & p a {
+        color: $text_color_white;
+        font-weight: 600;
 
-.LoginForm__link p a:hover,
-.RegisterForm__link p a:hover {
-    text-decoration: underline;
+        &:hover {
+            text-decoration: underline;
+        }
+    }
 }

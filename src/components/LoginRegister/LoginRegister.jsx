@@ -16,7 +16,7 @@ function LoginRegister({ cookies }) {
     };
 
     return (
-        <section className='loginRegisterPage'>
+        <section id='loginRegisterPage'>
             <div className={`loginRegisterPage__wrapper ${action}`}>
                 <div className='loginRegisterPage__form-box form-box--login'>
                     <LoginForm registerLink={registerLink} cookies={cookies} />

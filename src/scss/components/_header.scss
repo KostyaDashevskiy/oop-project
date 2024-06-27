@@ -1,12 +1,12 @@
 @import '../variables';
 
-/*---------------------logo*/
-.header {
+/*logo*/
+#header {
     padding: 20px 0;
     background-color: $header_color;
 }
 
-.header_container {
+.header__container {
     max-width: 1780px;
     margin: 0 auto;
     padding: 0 30px;
@@ -15,48 +15,41 @@
     justify-content: space-between;
 }
 
-.header_link {
-    text-decoration: none;
-    color: $text_color_black;
-    text-align: center;
-}
-
-.header_link > img {
+.header__link > img {
     max-height: 70px;
 }
 
 /*header menu*/
 
-.header_menu {
+.header__menu {
     position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     min-width: 150px;
 }
 
-.menu_icon {
+.menu__icon {
     position: absolute;
     top: 50%;
     left: 12px;
     transform: translateY(-45%);
-    font-size: 16px;
+    cursor: pointer;
 }
 
-.menu_button {
+.menu__button {
     height: 40px;
     width: 100%;
     padding: 10px 20px;
     padding-left: 40px;
-    border: none;
     background-color: $background_color_white;
     border-radius: 5px;
     cursor: pointer;
     font-size: 20px;
 }
 
-.header_dropdown {
+.menu__dropdown {
     position: absolute;
-    z-index: 2;
     right: 0px;
     top: 45px;
     min-width: 150px;
@@ -67,23 +60,21 @@
     transform: translateY(10px);
     visibility: hidden;
     transition: 0.3s;
+    z-index: 2;
+
+    &.active {
+        transform: translateY(0);
+        opacity: 1;
+        visibility: visible;
+    }
 }
 
-.header_dropdown.active {
-    transform: translateY(0);
-    opacity: 1;
-    visibility: visible;
-}
-
-.menu_list {
-    margin: 0;
-    width: 100%;
-    list-style-type: none;
+.menu__list {
     display: flex;
     flex-direction: column;
 }
 
-.menu_item {
+.menu__item {
     position: relative;
     display: flex;
     align-items: center;
@@ -95,7 +86,7 @@
     padding: 20px 20px;
 }
 
-.menu_link:not(:last-child) .menu_item::after {
+.menu__link:not(:last-child) .menu__item::after {
     position: absolute;
     content: '';
     display: block;
@@ -106,7 +97,7 @@
     bottom: 0;
 }
 
-.menu_item.icon {
+.menu__item.icon {
     margin-right: 15px;
     font-size: 14px;
     color: gray;
