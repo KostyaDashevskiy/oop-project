@@ -55,10 +55,12 @@ function AdditionalInfo({ cookies }) {
 
     return (
         <form className='profile__AdditionalInfo AdditionalInfo' onSubmit={handleSubmit}>
-            <div className='AdditionalInfo__Country'>
-                <div className='AdditionalInfo__Country--label AdditionalInfo--label'>Country:</div>
+            <div className='AdditionalInfo__Country profile__field'>
+                <div className='AdditionalInfo__Country--label AdditionalInfo--label profile--label'>
+                    Country:
+                </div>
                 <select
-                    className='AdditionalInfo__Country--data AdditionalInfo--data'
+                    className='AdditionalInfo__Country--data AdditionalInfo--data profile--data'
                     value={country}
                     onChange={(event) => {
                         setcountry(event.target.value);
@@ -73,13 +75,13 @@ function AdditionalInfo({ cookies }) {
                     ))}
                 </select>
             </div>
-            <div className='AdditionalInfo__Twitch'>
-                <div className='AdditionalInfo__Twitch--label AdditionalInfo--label'>
+            <div className='AdditionalInfo__Twitch profile__field'>
+                <div className='AdditionalInfo__Twitch--label AdditionalInfo--label profile--label'>
                     Twitch link:
                 </div>
 
                 <input
-                    className='AdditionalInfo__Twitch--data AdditionalInfo--data'
+                    className='AdditionalInfo__Twitch--data AdditionalInfo--data profile--data'
                     type='url'
                     value={twitchLink}
                     onChange={(event) => {
@@ -92,7 +94,7 @@ function AdditionalInfo({ cookies }) {
             {code && <p>{message}</p>}
 
             <button
-                className='AdditionalInfo__button'
+                className='AdditionalInfo__button profile__button'
                 type='submit'
                 disabled={country === '' && twitchLink === undefined ? true : ''}
             >

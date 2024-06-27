@@ -87,32 +87,17 @@
     align-items: flex-start;
 }
 
-.BasicInfo__UserName,
-.BasicInfo__UserEmail,
-.BasicInfo__UserRating,
-.BasicInfo__UserWins,
-.ChangePassword__OldPassword,
-.ChangePassword__NewPassword,
-.ChangePassword__ConfirmNewPassword,
-.AdditionalInfo__Country,
-.AdditionalInfo__Twitch,
-.DeleteAccount__Password {
+.profile__field {
     display: flex;
     flex-direction: column;
     row-gap: 10px;
 }
 
-.BasicInfo--label,
-.AdditionalInfo--label,
-.ChangePassword--label,
-.DeleteAccount--label {
+.profile--label {
     font-size: 30px;
 }
 
-.BasicInfo--data,
-.AdditionalInfo--data,
-.ChangePassword--data,
-.DeleteAccount--data {
+.profile--data {
     text-align: center;
     color: $text_color_white;
     background-color: $info_background_color;
@@ -126,16 +111,11 @@
     text-align: left;
 }
 
-.AdditionalInfo--data::placeholder,
-.ChangePassword--data::placeholder,
-.DeleteAccount--data::placeholder {
+.profile--data::placeholder {
     color: $text_color_white;
 }
 
-.AdditionalInfo__button,
-.ChangePassword__button,
-.DeleteAccount__button,
-.DeleteAccount__button {
+.profile__button {
     @include profile_tabs_btn;
     font-size: 30px;
 }

@@ -21,27 +21,33 @@ function BasicInfo({ cookies, style }) {
     }, []);
     return (
         <section className='profile__BasicInfo BasicInfo' style={style}>
-            <div className='BasicInfo__UserName'>
-                <div className='BasicInfo__UserName--label BasicInfo--label'>Username:</div>
-                <div className='BasicInfo__UserName--data BasicInfo--data'>
+            <div className='BasicInfo__UserName profile__field'>
+                <div className='BasicInfo__UserName--label BasicInfo--label profile--label'>
+                    Username:
+                </div>
+                <div className='BasicInfo__UserName--data BasicInfo--data profile--data'>
                     {userName !== undefined ? userName : 'Username'}
                 </div>
             </div>
-            <div className='BasicInfo__UserEmail'>
-                <div className='BasicInfo__UserEmail--label BasicInfo--label'>Email:</div>
-                <div className='BasicInfo__UserEmail--data BasicInfo--data'>
+            <div className='BasicInfo__UserEmail profile__field'>
+                <div className='BasicInfo__UserEmail--label BasicInfo--label profile--label'>
+                    Email:
+                </div>
+                <div className='BasicInfo__UserEmail--data BasicInfo--data profile--data'>
                     {email !== undefined ? email : 'placeholder@placeholder'}
                 </div>
             </div>
-            <div className='BasicInfo__UserRating'>
-                <div className='BasicInfo__rating--label BasicInfo--label'>Rating:</div>
-                <div className='BasicInfo__rating--data BasicInfo--data'>
+            <div className='BasicInfo__UserRating profile__field'>
+                <div className='BasicInfo__rating--label BasicInfo--label profile--label'>
+                    Rating:
+                </div>
+                <div className='BasicInfo__rating--data BasicInfo--data profile--data'>
                     {rating !== undefined ? rating : '0'}
                 </div>
             </div>
             <div className='BasicInfo__UserWins'>
-                <div className='BasicInfo__wins--label BasicInfo--label'>Wins:</div>
-                <div className='BasicInfo__wins--data BasicInfo--data'>
+                <div className='BasicInfo__wins--label BasicInfo--label profile--label'>Wins:</div>
+                <div className='BasicInfo__wins--data BasicInfo--data profile--data'>
                     {wins !== undefined ? wins : '0'}
                 </div>
             </div>

@@ -39,12 +39,12 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
 
     return (
         <form className='profile__ChangePassword ChangePassword' onSubmit={handleSubmit}>
-            <div className='ChangePassword__OldPassword'>
-                <div className='ChangePassword__OldPassword--label ChangePassword--label'>
+            <div className='ChangePassword__OldPassword profile__field'>
+                <div className='ChangePassword__OldPassword--label ChangePassword--label profile--label'>
                     Old password:
                 </div>
                 <input
-                    className='ChangePassword__UserName--data ChangePassword--data'
+                    className='ChangePassword__UserName--data ChangePassword--data profile--data'
                     type='password'
                     placeholder='Password'
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
@@ -54,13 +54,13 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
                     required
                 />
             </div>
-            <div className='ChangePassword__NewPassword'>
-                <div className='ChangePassword__NewPassword--label ChangePassword--label'>
+            <div className='ChangePassword__NewPassword profile__field'>
+                <div className='ChangePassword__NewPassword--label ChangePassword--label profile--label'>
                     New password:
                 </div>
 
                 <input
-                    className='ChangePassword__NewPassword--data ChangePassword--data'
+                    className='ChangePassword__NewPassword--data ChangePassword--data profile--data'
                     type='password'
                     placeholder='New password'
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
@@ -70,12 +70,12 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
                     required
                 />
             </div>
-            <div className='ChangePassword__ConfirmNewPassword'>
-                <div className='ChangePassword__ConfirmNewPassword--label ChangePassword--label'>
+            <div className='ChangePassword__ConfirmNewPassword profile__field'>
+                <div className='ChangePassword__ConfirmNewPassword--label ChangePassword--label profile--label'>
                     Confirm new password:
                 </div>
                 <input
-                    className='ChangePassword__ConfirmNewPassword--data ChangePassword--data'
+                    className='ChangePassword__ConfirmNewPassword--data ChangePassword--data profile--data'
                     type='password'
                     placeholder='Confirm new password'
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
@@ -95,7 +95,7 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
                 )}
             {code && <p>{message}</p>}
             <button
-                className='ChangePassword__button'
+                className='ChangePassword__button profile__button'
                 type='submit'
                 disabled={
                     oldPassword === '' ||

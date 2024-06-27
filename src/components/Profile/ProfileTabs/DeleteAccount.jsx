@@ -29,10 +29,12 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
 
     return (
         <form className='profile__DeleteAccount DeleteAccount' onSubmit={handleSubmit}>
-            <div className='DeleteAccount__Password'>
-                <div className='DeleteAccount__Password--label DeleteAccount--label'>Password:</div>
+            <div className='DeleteAccount__Password profile__field'>
+                <div className='DeleteAccount__Password--label DeleteAccount--label profile--label'>
+                    Password:
+                </div>
                 <input
-                    className='DeleteAccount__Password--data DeleteAccount--data'
+                    className='DeleteAccount__Password--data DeleteAccount--data profile--data'
                     type='password'
                     placeholder='Password'
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
@@ -44,7 +46,7 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
             </div>
 
             <button
-                className='DeleteAccount__button'
+                className='DeleteAccount__button profile__button'
                 type='submit'
                 disabled={password === '' || password.length < 6 ? true : ''}
             >
