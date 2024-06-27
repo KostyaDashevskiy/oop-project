@@ -1,0 +1,25 @@
+@charset "UTF-8";
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+@font-face {
+    font-family: 'Plants';
+    src: url('../fonts/samdan-webfont.woff2') format('woff2'),
+        url('../fonts/samdan-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Zombies';
+    src: url('../fonts/samdanevilcondensed-webfont.woff2') format('woff2'),
+        url('../fonts/samdanevilcondensed-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Grobold';
+    src: url('../fonts/grobold-webfont.woff') format('woff'),
+        url('../fonts/grobold-webfont.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}

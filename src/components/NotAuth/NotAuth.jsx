@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './NotAuth.css';
+import '../../scss/app.scss';
 
 function NotAuth() {
     return (

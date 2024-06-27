@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import './Page404.css';
+import '../../scss/app.scss';
 
 function Page404({ cookies }) {
     return (

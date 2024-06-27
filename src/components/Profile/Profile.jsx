@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import './Profile.css';
+import '../../scss/app.scss';
 import Cookies from 'universal-cookie';
 import Header from '../Header/Header';
 import NotAuth from '../NotAuth/NotAuth';

@@ -1,5 +1,7 @@
+@import '../variables';
+
 #home {
-    background-image: url(../Assets/gwent.jpg);
+    background-image: url(../../components/Assets/gwent.jpg);
     background-position: 0 -24px;
     background-repeat: no-repeat;
     background-size: cover;

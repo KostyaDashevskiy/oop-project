@@ -2,7 +2,7 @@ import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 import Header from '../Header/Header';
 import NotAuth from '../NotAuth/NotAuth';
-import './Home.css';
+import '../../scss/app.scss';
 
 function Home({ cookies }) {
     return (

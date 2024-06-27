@@ -1,10 +1,12 @@
+@import '../variables';
+
 /*loginRegisterPage*/
 .loginRegisterPage {
     display: flex;
     justify-content: center;
     align-items: flex-start;
     min-height: 100vh;
-    background: url(../Assets/gwent.jpg) no-repeat;
+    background: url(../../components/Assets/gwent.jpg) no-repeat;
     background-size: cover;
     background-position: center;
 }
@@ -13,9 +15,9 @@
     position: relative;
     width: 420px;
     height: 450px;
-    background: var(--form-background-color);
+    background: $form-background_color;
     border-radius: 10px;
-    color: var(--text-color-white);
+    color: $text_color_white;
     display: flex;
     align-items: center;
     overflow: hidden;
@@ -78,13 +80,13 @@
     border: 2px solid rgba(255, 255, 255, 1);
     border-radius: 40px;
     font-size: 16px;
-    color: var(--text-color-white);
+    color: $text_color_white;
     padding: 20px 45px 20px 20px;
 }
 
 .LoginForm__input-box input::placeholder,
 .RegisterForm__input-box input::placeholder {
-    color: var(--text-color-white);
+    color: $text_color_white;
 }
 
 .LoginForm__input-box .icon,
@@ -106,12 +108,12 @@
 
 .RegisterForm__check-box label input,
 .LoginForm__check-box label input {
-    accent-color: var(--checkbox-accent-color);
+    accent-color: $checkbox_accent_color;
     margin-right: 4px;
 }
 
 .LoginForm__check-box a {
-    color: var(--text-color-white);
+    color: $text_color_white;
     text-decoration: none;
 }
 
@@ -165,7 +167,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: var(--text-color-black);
+    color: $text_color_black;
     font-weight: 700;
 }
 
@@ -181,7 +183,7 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     cursor: pointer;
     font-size: 16px;
-    color: var(--text-color-black);
+    color: $text_color_black;
     font-weight: 700;
 }
 

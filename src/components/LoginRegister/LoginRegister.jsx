@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 
-import './LoginRegister.css';
+import '../../scss/app.scss';
 
 function LoginRegister({ cookies }) {
     const [action, setAction] = useState('');
