@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import '../../scss/app.scss';
 import Cookies from 'universal-cookie';
 import Header from '../Header/Header';
