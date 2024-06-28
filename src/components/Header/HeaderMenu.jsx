@@ -4,13 +4,13 @@ import { BiLogOut } from 'react-icons/bi';
 import Cookies from 'universal-cookie';
 import { Link, Navigate } from 'react-router-dom';
 
-function HeaderMenu({ cookies }) {
+function HeaderMenu({ cookies, setCookiesState }) {
     const [isOpen, setOpen] = useState(false);
-    const logoutFunc = () => {
+    function logoutFunc() {
         cookies.remove('jwt_token');
         cookies.remove('name');
-        return <Navigate to='/' />;
-    };
+        setCookiesState();
+    }
     return (
         <>
             <nav className='header__menu menu' onClick={() => setOpen(!isOpen)}>
@@ -26,7 +26,7 @@ function HeaderMenu({ cookies }) {
                                 <span>Profile</span>
                             </li>
                         </Link>
-                        <a className='menu__link' onClick={() => logoutFunc}>
+                        <a className='menu__link' onClick={() => logoutFunc()}>
                             <li className='menu__item'>
                                 <BiLogOut className='icon' />
                                 <span>Log out</span>

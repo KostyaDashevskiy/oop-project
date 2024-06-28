@@ -4,7 +4,7 @@ import '../../scss/app.scss';
 import Logo from '../Assets/Logo.png';
 import HeaderMenu from './HeaderMenu';
 
-function Header({ cookies }) {
+function Header({ cookies, setCookiesState }) {
     return (
         <header id='header'>
             <div className='header__container'>
@@ -13,7 +13,7 @@ function Header({ cookies }) {
                         <img src={Logo} alt='Gwent PvZ edition' />
                     </Link>
                 </div>
-                <HeaderMenu cookies={cookies} />
+                <HeaderMenu cookies={cookies} setCookiesState={setCookiesState} />
             </div>
         </header>
     );
