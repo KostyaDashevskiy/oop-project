@@ -21,7 +21,7 @@ function Profile({ cookies }) {
                 <NotAuth />
             ) : (
                 <>
-                    <Header cookies={cookies} />
+                    <Header cookies={cookies} setCookiesState={setCookiesState} />
                     <section id='profile'>
                         <div className='profile__container'>
                             <nav className='profile__sidebar sidebar'>
