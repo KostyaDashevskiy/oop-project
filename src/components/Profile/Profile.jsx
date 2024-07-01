@@ -1,19 +1,15 @@
 import { useState } from 'react';
 import '../../scss/app.scss';
-import Cookies from 'universal-cookie';
 import Header from '../Header/Header';
-import NotAuth from '../NotAuth/NotAuth';
 import BasicInfo from './ProfileTabs/BasicInfo';
 import AdditionalInfo from './ProfileTabs/AdditionalInfo';
 import ChangePassword from './ProfileTabs/ChangePassword';
 import DeleteAccount from './ProfileTabs/DeleteAccount';
+import NotAuth from '../NotAuth/NotAuth';
+
 function Profile({ cookies }) {
     const [activeTab, setActiveTab] = useState('basicInfo');
     const [cookiesState, setCookiesState] = useState(cookies.get('name'));
-
-    const handleTabChange = (tab) => {
-        setActiveTab(tab);
-    };
 
     return (
         <>
@@ -29,7 +25,7 @@ function Profile({ cookies }) {
                                     className={`sidebar__button ${
                                         activeTab === 'basicInfo' ? 'active' : ''
                                     }`}
-                                    onClick={() => handleTabChange('basicInfo')}
+                                    onClick={() => setActiveTab('basicInfo')}
                                 >
                                     Basic Information
                                 </button>
@@ -37,7 +33,7 @@ function Profile({ cookies }) {
                                     className={`sidebar__button ${
                                         activeTab === 'aditionalInfo' ? 'active' : ''
                                     }`}
-                                    onClick={() => handleTabChange('aditionalInfo')}
+                                    onClick={() => setActiveTab('aditionalInfo')}
                                 >
                                     Aditional Info
                                 </button>
@@ -45,7 +41,7 @@ function Profile({ cookies }) {
                                     className={`sidebar__button ${
                                         activeTab === 'changePassword' ? 'active' : ''
                                     }`}
-                                    onClick={() => handleTabChange('changePassword')}
+                                    onClick={() => setActiveTab('changePassword')}
                                 >
                                     Change Password
                                 </button>
@@ -53,7 +49,7 @@ function Profile({ cookies }) {
                                     className={`sidebar__button sidebar__button--delite-account ${
                                         activeTab === 'deleteAccount' ? 'active' : ''
                                     }`}
-                                    onClick={() => handleTabChange('deleteAccount')}
+                                    onClick={() => setActiveTab('deleteAccount')}
                                 >
                                     Delete Account
                                 </button>

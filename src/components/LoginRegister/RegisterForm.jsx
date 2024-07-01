@@ -3,13 +3,16 @@ import { FaUser, FaLock, FaEnvelope } from 'react-icons/fa6';
 import { CreateApiEndpoint, END_POINTS } from '../../api';
 
 function RegisterForm({ loginLink }) {
+    //переменные для отправки на бэк
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
 
+    //переменные для ответа с бэка
     const [message, setMessage] = useState('');
     const [code, setCode] = useState();
+
     const handleSubmit = (e) => {
         // Prevent the default submit and page reload
         e.preventDefault();
@@ -21,6 +24,8 @@ function RegisterForm({ loginLink }) {
                 setCode(res.data.code);
 
                 //подтираем следы вмешательства
+                setUserName('');
+                setEmail('');
                 setPassword('');
                 setConfirmPassword('');
             })
@@ -39,6 +44,7 @@ function RegisterForm({ loginLink }) {
                 <div className='RegisterForm__input-box'>
                     <input
                         type='text'
+                        autoComplete='username'
                         placeholder='Username'
                         required
                         pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{8,20}$'
@@ -51,6 +57,7 @@ function RegisterForm({ loginLink }) {
                 <div className='RegisterForm__input-box'>
                     <input
                         type='email'
+                        autoComplete='email'
                         placeholder='Email'
                         required
                         value={email}
@@ -61,6 +68,7 @@ function RegisterForm({ loginLink }) {
                 <div className='RegisterForm__input-box'>
                     <input
                         type='password'
+                        autoComplete='new-password'
                         placeholder='Password'
                         required
                         minLength='6'
@@ -73,6 +81,7 @@ function RegisterForm({ loginLink }) {
                 <div className='RegisterForm__input-box'>
                     <input
                         type='password'
+                        autoComplete='new-password'
                         placeholder='Confirm your password'
                         required
                         minLength='6'
@@ -84,11 +93,11 @@ function RegisterForm({ loginLink }) {
                     <FaLock className='icon' />
                 </div>
 
-                <div className='RegisterForm__check-box' style={{ display: 'none' }}>
+                {/* <div className='RegisterForm__check-box'>
                     <label>
-                        <input type='checkbox' />I agree to the terms & conditions {/*required*/}
+                        <input type='checkbox required' />I agree to the terms & conditions 
                     </label>
-                </div>
+                </div> */}
 
                 <div
                     className={
@@ -120,9 +129,9 @@ function RegisterForm({ loginLink }) {
                         Already have an account?
                         <a
                             href='#!'
-                            onClick={function () {
-                                loginLink();
-                                setCode();
+                            onClick={() => {
+                                loginLink(); //переход на страницу логина
+                                setCode(); //исчезновение ошибки при регистрации
                             }}
                         >
                             Login
@@ -140,11 +149,9 @@ function RegisterForm({ loginLink }) {
                 href='#!'
                 className='RegisterForm__response-link'
                 style={{ display: code === 200 ? 'flex' : 'none' }}
-                onClick={function () {
-                    loginLink();
-                    setUserName('');
-                    setEmail('');
-                    setCode();
+                onClick={() => {
+                    loginLink(); //переход на страницу логина
+                    setCode(); //исчезновение сообщения об ошибке регистрации
                 }}
             >
                 Login

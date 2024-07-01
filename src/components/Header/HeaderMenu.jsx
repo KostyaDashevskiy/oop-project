@@ -1,7 +1,6 @@
 import { useState } from 'react';
 import { FaUser } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
-import Cookies from 'universal-cookie';
 import { Link } from 'react-router-dom';
 
 function HeaderMenu({ cookies, setCookiesState }) {

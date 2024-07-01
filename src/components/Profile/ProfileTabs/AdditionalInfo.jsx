@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
-import Cookies from 'universal-cookie';
+import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../../api/';
 
 function AdditionalInfo({ cookies }) {
-    const [country, setcountry] = useState('');
+    const [userName] = useState(cookies.get('name'));
+
+    //переменные для отправки на бэк
+    const [country, setCountry] = useState('');
     const [twitchLink, setTwitchLink] = useState();
 
-    const [userName] = useState(cookies.get('name'));
+    //переменные для ответа с бэка
     const [code, setCode] = useState('');
     const [message, setMessage] = useState('');
 
     const handleSubmit = (event) => {
         event.preventDefault();
 
-        country !== undefined
+        country !== ''
             ? CreateApiEndpoint(END_POINTS.SETCOUNTRY)
                   .setCountry({
                       userName,
@@ -22,6 +24,7 @@ function AdditionalInfo({ cookies }) {
                   .then((res) => {
                       setCode(res.data.code);
                       setMessage(res.data.message);
+                      setCountry('');
                   })
                   .catch((err) => console.log(err))
             : setMessage(message);
@@ -32,9 +35,9 @@ function AdditionalInfo({ cookies }) {
                       twitchLink,
                   })
                   .then((res) => {
-                      console.log(res);
                       setCode(res.data.code);
                       setMessage(res.data.message);
+                      setTwitchLink();
                   })
                   .catch((err) => console.log(err))
             : setMessage(message);
@@ -54,7 +57,7 @@ function AdditionalInfo({ cookies }) {
     ];
 
     return (
-        <form className='profile__AdditionalInfo AdditionalInfo' onSubmit={handleSubmit}>
+        <form className='profile__AdditionalInfo AdditionalInfo' onSubmit={(e) => handleSubmit(e)}>
             <div className='AdditionalInfo__Country profile__field'>
                 <div className='AdditionalInfo__Country--label AdditionalInfo--label profile--label'>
                     Country:
@@ -63,7 +66,7 @@ function AdditionalInfo({ cookies }) {
                     className='AdditionalInfo__Country--data AdditionalInfo--data profile--data'
                     value={country}
                     onChange={(event) => {
-                        setcountry(event.target.value);
+                        setCountry(event.target.value);
                         setCode('');
                     }}
                 >

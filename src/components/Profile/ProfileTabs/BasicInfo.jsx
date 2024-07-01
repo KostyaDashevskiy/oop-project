@@ -1,14 +1,15 @@
 import { useEffect, useState } from 'react';
-import Cookies from 'universal-cookie';
 import { CreateApiEndpoint, END_POINTS } from '../../../api/';
 
 function BasicInfo({ cookies, style }) {
-    const [userName] = useState(
-        cookies.get('name') !== undefined ? cookies.get('name') : undefined,
-    );
+    //переменные для отправки на бэк
+    const [userName] = useState(cookies.get('name'));
+
+    //переменные для ответа с бэка
     const [email, setEmail] = useState();
     const [rating, setRating] = useState();
     const [wins, setWins] = useState();
+
     useEffect(() => {
         CreateApiEndpoint(END_POINTS.GETPROFILE)
             .getProfile({ userName })
@@ -18,7 +19,7 @@ function BasicInfo({ cookies, style }) {
                 setWins(res.data.wins);
             })
             .catch((err) => console.log(err));
-    }, []);
+    });
     return (
         <section className='profile__BasicInfo BasicInfo' style={style}>
             <div className='BasicInfo__UserName profile__field'>

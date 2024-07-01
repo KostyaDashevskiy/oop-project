@@ -1,12 +1,12 @@
 import { useState } from 'react';
-import { Navigate } from 'react-router-dom';
 import { CreateApiEndpoint, END_POINTS } from '../../../api';
-import Cookies from 'universal-cookie';
 
 const DeleteAccount = ({ cookies, setCookiesState }) => {
+    //переменные для отправки на бэк
     const userName = cookies.get('name');
     const [password, setPassword] = useState('');
 
+    //переменные для ответа с бэка
     const [code, setCode] = useState();
 
     const handleSubmit = (e) => {
@@ -36,6 +36,7 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
                 <input
                     className='DeleteAccount__Password--data DeleteAccount--data profile--data'
                     type='password'
+                    autoComplete='current-password'
                     placeholder='Password'
                     pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
                     minLength='6'

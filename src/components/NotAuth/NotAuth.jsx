@@ -4,8 +4,8 @@ import '../../scss/app.scss';
 function NotAuth() {
     return (
         <section id='notnuth'>
-            <div class='notnuth'>
-                <div class='notnuth__content'>
+            <div className='notnuth'>
+                <div className='notnuth__content'>
                     <h1>
                         4<span></span>4
                     </h1>

@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../api';
 import { Navigate } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 import { FaUser, FaLock } from 'react-icons/fa6';
 
 function LoginForm({ registerLink, cookies }) {
+    //переменные для отправки на бэк
     const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
+
+    //переменные для ответа с бэка
     const [message, setMessage] = useState('');
     const [code, setCode] = useState();
 
@@ -21,7 +23,6 @@ function LoginForm({ registerLink, cookies }) {
         CreateApiEndpoint(END_POINTS.LOGIN)
             .login({ userName, password })
             .then((res) => {
-                //создание локальных переменных
                 setCode(res.data.code);
                 setMessage(res.data.message);
 
@@ -41,12 +42,13 @@ function LoginForm({ registerLink, cookies }) {
             <form
                 className='loginRegisterPage__LoginForm LoginForm'
                 method='post'
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
             >
                 <h1>Login</h1>
                 <div className='LoginForm__input-box'>
                     <input
                         type='text'
+                        autoComplete='username'
                         placeholder='Username'
                         minLength='8'
                         required
@@ -59,6 +61,7 @@ function LoginForm({ registerLink, cookies }) {
                 <div className='LoginForm__input-box'>
                     <input
                         type='password'
+                        autoComplete='current-password'
                         placeholder='Password'
                         required
                         pattern='^(?=.*[a-z])(?=.*[A-Z])[a-zA-Z0-9]{6,}$'
@@ -94,9 +97,9 @@ function LoginForm({ registerLink, cookies }) {
 
                 <div
                     className='LoginForm__link'
-                    onClick={function () {
-                        registerLink();
-                        setCode();
+                    onClick={() => {
+                        registerLink(); //переход на страницу регистрации
+                        setCode(); //исчезновение ошибки при логине
                     }}
                 >
                     <p>

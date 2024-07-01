@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import Cookies from 'universal-cookie';
 import '../../scss/app.scss';
 import Logo from '../Assets/Logo.png';
 import HeaderMenu from './HeaderMenu';
