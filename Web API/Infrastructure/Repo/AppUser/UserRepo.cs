@@ -66,6 +66,10 @@ namespace Infrastructure.Repo.AppUser
         private async Task<UserInfo> FindTnfoUserByName(string name) =>
            await appDbContext.Info.FirstOrDefaultAsync(x => x.Name == name);
 
+        //поиск по столбцу имени таблицы Guilds
+        private async Task<UserGuild> FindGuildByName(string name) =>
+            await appDbContext.Guilds.FirstOrDefaultAsync(x => x.GuildName == name);
+
         //обработка запроса на вход
         public async Task<LoginResponse> LoginUserAsync(LoginDTO loginDTO)
         {
@@ -208,6 +212,21 @@ namespace Infrastructure.Repo.AppUser
             if (!checkPassword)
             {
                 return new DeleteUserResponse(402, "Invalid credentails: incorrect password");
+            }
+
+            //удаление пользователя из списка гильдии, если он в ней находится
+            var getUserProfile = await FindProfileUserByName(deleteUserDTO.UserName);
+            if (getUserProfile.Guild != "-")
+            {
+                var getGuild = await FindGuildByName(getUserProfile.Guild);
+                if (getUserProfile.Name == getGuild.GuildAdmin)
+                {
+                    return new DeleteUserResponse(403, "User is admin of guild");
+                }
+                
+                getGuild.Members.Remove(getUserProfile.Name);
+                getGuild.MembersCount--;
+                getGuild.GuildRatirng -= Convert.ToInt32(getUserProfile.Rating);
             }
 
             //удаляем пользователя из базы

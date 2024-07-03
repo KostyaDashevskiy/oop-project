@@ -17,8 +17,8 @@ namespace Infrastructure.Repo.GameProfile
         {
             this.appDbContext = appDbContext;
             this.configuration = configuration;
-        }
-
+        }      
+        
         //поиск по столбцу имени таблицы Rating
         private async Task<UserRating> FindUserByName(string name) =>
             await appDbContext.Rating.FirstOrDefaultAsync(x => x.UserName == name);
