@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import { FaUser } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 function HeaderMenu({ cookies, setCookiesState }) {
     const [isOpen, setOpen] = useState(false);
+    const navigate = useNavigate();
     function logoutFunc() {
         cookies.remove('jwt_token');
         cookies.remove('name');
         setCookiesState();
+        navigate('/');
     }
     return (
         <>
