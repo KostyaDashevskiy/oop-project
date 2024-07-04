@@ -18,7 +18,7 @@ function RegisterForm({ loginLink }) {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.REGISTER)
-            .registration({ userName, email, password, confirmPassword })
+            .registration(userName, email, password, confirmPassword)
             .then((res) => {
                 setMessage(res.data.message);
                 setCode(res.data.code);

@@ -13,7 +13,7 @@ const DeleteAccount = ({ cookies, setCookiesState }) => {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.DELETEACCOUNT)
-            .deleteAccount({ userName, password })
+            .deleteAccount(userName, password)
             .then((res) => {
                 setCode(res.data.code);
                 if (res.data.code === 200) {

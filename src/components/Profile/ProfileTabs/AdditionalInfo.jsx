@@ -6,7 +6,7 @@ function AdditionalInfo({ cookies }) {
 
     //переменные для отправки на бэк
     const [country, setCountry] = useState('');
-    const [twitchLink, setTwitchLink] = useState();
+    const [twitchLink, setTwitchLink] = useState('');
 
     //переменные для ответа с бэка
     const [code, setCode] = useState('');
@@ -17,10 +17,7 @@ function AdditionalInfo({ cookies }) {
 
         country !== ''
             ? CreateApiEndpoint(END_POINTS.SETCOUNTRY)
-                  .setCountry({
-                      userName,
-                      country,
-                  })
+                  .setCountry(userName, country)
                   .then((res) => {
                       setCode(res.data.code);
                       setMessage(res.data.message);
@@ -28,12 +25,9 @@ function AdditionalInfo({ cookies }) {
                   })
                   .catch((err) => console.log(err))
             : setMessage(message);
-        twitchLink !== undefined
+        twitchLink !== ''
             ? CreateApiEndpoint(END_POINTS.SETTWITCH)
-                  .setTwitch({
-                      userName,
-                      twitchLink,
-                  })
+                  .setTwitch(userName, twitchLink)
                   .then((res) => {
                       setCode(res.data.code);
                       setMessage(res.data.message);
@@ -99,7 +93,7 @@ function AdditionalInfo({ cookies }) {
             <button
                 className='AdditionalInfo__button profile__button'
                 type='submit'
-                disabled={country === '' && twitchLink === undefined ? true : ''}
+                disabled={country === '' && twitchLink === '' ? true : ''}
             >
                 Save
             </button>

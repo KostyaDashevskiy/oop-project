@@ -12,7 +12,7 @@ function BasicInfo({ cookies, style }) {
 
     useEffect(() => {
         CreateApiEndpoint(END_POINTS.GETPROFILE)
-            .getProfile({ userName })
+            .getProfile(userName)
             .then((res) => {
                 setEmail(res.data.email);
                 setRating(res.data.rating);

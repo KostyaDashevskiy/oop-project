@@ -16,11 +16,7 @@ const ChangePassword = ({ cookies, setCookiesState }) => {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.CHANGEPASSWORD)
-            .changePassword({
-                userName,
-                oldPassword,
-                newPassword,
-            })
+            .changePassword(userName, oldPassword, newPassword)
             .then((res) => {
                 setCode(res.data.code);
                 setMessage(res.data.message);

@@ -21,7 +21,7 @@ function LoginForm({ registerLink, cookies }) {
         e.preventDefault();
 
         CreateApiEndpoint(END_POINTS.LOGIN)
-            .login({ userName, password })
+            .login(userName, password)
             .then((res) => {
                 setCode(res.data.code);
                 setMessage(res.data.message);
