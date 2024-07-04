@@ -37,7 +37,7 @@ function RegisterForm({ loginLink }) {
             <form
                 className='loginRegisterPage__RegisterForm RegisterForm'
                 method='post'
-                onSubmit={handleSubmit}
+                onSubmit={(e) => handleSubmit(e)}
                 style={{ display: code === 200 ? 'none' : 'block' }}
             >
                 <h1>Registration</h1>

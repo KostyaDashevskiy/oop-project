@@ -6,12 +6,12 @@ import { Link, useNavigate } from 'react-router-dom';
 function HeaderMenu({ cookies, setCookiesState }) {
     const [isOpen, setOpen] = useState(false);
     const navigate = useNavigate();
-    function logoutFunc() {
+    const logoutFunc = () => {
         cookies.remove('jwt_token');
         cookies.remove('name');
         setCookiesState();
         navigate('/');
-    }
+    };
     return (
         <>
             <nav className='header__menu menu' onClick={() => setOpen(!isOpen)}>

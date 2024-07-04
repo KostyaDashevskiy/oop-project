@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { CreateApiEndpoint, END_POINTS } from '../../api';
-import { Navigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { FaUser, FaLock } from 'react-icons/fa6';
 
 function LoginForm({ registerLink, cookies }) {
@@ -12,8 +12,9 @@ function LoginForm({ registerLink, cookies }) {
     const [message, setMessage] = useState('');
     const [code, setCode] = useState();
 
-    const navigate = () => {
-        return <Navigate to='/home' />;
+    const navigate = useNavigate();
+    const authorization = () => {
+        navigate('/home');
     };
 
     const handleSubmit = (e) => {
@@ -29,6 +30,9 @@ function LoginForm({ registerLink, cookies }) {
                 //создание кукисов
                 cookies.set('jwt_token', res.data.token);
                 cookies.set('name', userName);
+
+                //авторизация
+                if (res.data.code === 200) authorization();
 
                 //подтираем следы вмешательства
                 setUserName('');
@@ -72,13 +76,13 @@ function LoginForm({ registerLink, cookies }) {
                     <FaLock className='icon' />
                 </div>
 
-                <div className='LoginForm__check-box' style={{ display: 'none' }}>
+                {/* <div className='LoginForm__check-box'>
                     <label>
                         <input type='checkbox' />
                         Remember Me
                     </label>
                     <a href='#!'>Forgot password?</a>
-                </div>
+                </div> */}
 
                 <div
                     className={'LoginForm__response' + (code !== undefined ? ' code--' + code : '')}
@@ -107,7 +111,6 @@ function LoginForm({ registerLink, cookies }) {
                     </p>
                 </div>
             </form>
-            <div>{code === 200 ? navigate() : ''}</div>
         </>
     );
 }
