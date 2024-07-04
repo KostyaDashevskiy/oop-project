@@ -3,13 +3,12 @@ import { FaUser } from 'react-icons/fa6';
 import { BiLogOut } from 'react-icons/bi';
 import { Link, useNavigate } from 'react-router-dom';
 
-function HeaderMenu({ cookies, setCookiesState }) {
+function HeaderMenu({ cookies }) {
     const [isOpen, setOpen] = useState(false);
     const navigate = useNavigate();
     const logoutFunc = () => {
         cookies.remove('jwt_token');
         cookies.remove('name');
-        setCookiesState();
         navigate('/');
     };
     return (

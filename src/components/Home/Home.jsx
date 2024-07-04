@@ -5,14 +5,14 @@ import NotAuth from '../NotAuth/NotAuth';
 import '../../scss/app.scss';
 
 function Home({ cookies }) {
-    const [cookiesState, setCookiesState] = useState(cookies.get('name'));
+    const [cookiesState] = useState(cookies.get('name'));
     return (
         <>
             {cookiesState === undefined ? (
                 <NotAuth />
             ) : (
                 <>
-                    <Header cookies={cookies} setCookiesState={setCookiesState} />
+                    <Header cookies={cookies} />
                     <section id='home'>
                         <div className='home__container'>
                             <Link to='/game' className='home__btn'>
