@@ -9,7 +9,7 @@ export const END_POINTS = {
 
     //UserProfilePage
     GETPROFILE: 'Profile/getProfile?UserName=',
-    SETCOUNTRY: 'Country/country',
+    SETCOUNTRY: 'Country/setCountry',
     SETTWITCH: 'Twitch/setTwitch',
     CHANGEPASSWORD: 'User/changePassword',
     DELETEACCOUNT: 'User/deleteUser',
@@ -19,15 +19,9 @@ export const CreateApiEndpoint = (endpoint: string) => {
     let url = BASE_URL + endpoint;
 
     return {
-        login: (userName: string, password: string) =>
-            axios.post(url, { userName: userName, password: password }),
+        login: (userName: string, password: string) => axios.post(url, { userName: userName, password: password }),
 
-        registration: (
-            userName: string,
-            email: string,
-            password: string,
-            confirmPassword: string,
-        ) =>
+        registration: (userName: string, email: string, password: string, confirmPassword: string) =>
             axios.post(url, {
                 userName: userName,
                 email: email,
@@ -37,11 +31,9 @@ export const CreateApiEndpoint = (endpoint: string) => {
 
         getProfile: (userName: string) => axios.get(url + userName),
 
-        setCountry: (userName: string, country: string) =>
-            axios.patch(url, { userName: userName, country: country }),
+        setCountry: (userName: string, country: string) => axios.patch(url, { userName: userName, country: country }),
 
-        setTwitch: (userName: string, twitchLink: string) =>
-            axios.patch(url, { userName: userName, twitchLink: twitchLink }),
+        setTwitch: (userName: string, twitchLink: string) => axios.patch(url, { userName: userName, twitchLink: twitchLink }),
 
         changePassword: (userName: string, oldPassword: string, newPassword: string) =>
             axios.patch(url, {
@@ -49,7 +41,6 @@ export const CreateApiEndpoint = (endpoint: string) => {
                 oldPassword: oldPassword,
                 newPassword: newPassword,
             }),
-        deleteAccount: (userName: string, password: string) =>
-            axios.delete(url, { data: { userName: userName, password: password } }),
+        deleteAccount: (userName: string, password: string) => axios.delete(url, { data: { userName: userName, password: password } }),
     };
 };
