@@ -1,5 +1,6 @@
 using Infrastructure.DependencyInjection;
 using Microsoft.OpenApi.Models;
+using WebAPI.Online.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.InfrastructureServices(builder.Configuration);
+builder.Services.AddSignalR();
 builder.Services.AddSwaggerGen(swagger =>
 {
     swagger.SwaggerDoc("v1", new OpenApiInfo
@@ -25,8 +28,6 @@ builder.Services.AddSwaggerGen(swagger =>
     });
 });
 
-builder.Services.InfrastructureServices(builder.Configuration);
-
 var app = builder.Build();
 
 app.UseCors(options =>
@@ -41,6 +42,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.MapHub<GameHub>("/game");
 
 app.UseHttpsRedirection();
 
